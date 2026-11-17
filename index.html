@@ -1,0 +1,3068 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth" style="--pg-primary: #0ea5e9; --pg-secondary: #6366f1; --pg-orb1: #7dd3fc; --pg-orb2: #c4b5fd; --pg-orb3: #99f6e4; --pg-bg: #eef6fb; --pg-blur: 22px; --pg-opacity: 0.46; --pg-border-alpha: 0.62; --pg-radius: 24px; --pg-font-heading: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif; --pg-font-body: 'Be Vietnam Pro', 'Inter', sans-serif; --pg-glass-rgb: 255, 255, 255; --pg-border-rgb: 255, 255, 255; --pg-text-color: #0f172a;"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortfoGlass VN — Studio Chỉnh Sửa Portfolio Liquid Glass</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <!-- Tải đầy đủ 30 Google Fonts hỗ trợ tiếng Việt mượt mà -->
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,400;0,700;1,400&amp;family=Anton&amp;family=Archivo:wght@400;600;700&amp;family=Arimo:wght@400;600;700&amp;family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Cabin:wght@400;600;700&amp;family=Chakra+Petch:wght@400;600;700&amp;family=Comfortaa:wght@400;600;700&amp;family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&amp;family=Dancing+Script:wght@600;700&amp;family=EB+Garamond:ital,wght@0,500;0,700;1,500&amp;family=Exo+2:wght@400;600;700&amp;family=Fira+Code:wght@400;600&amp;family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Inconsolata:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;family=Josefin+Sans:wght@400;600;700&amp;family=Kanit:wght@400;600;700&amp;family=Lora:ital,wght@0,500;0,700;1,500&amp;family=Merriweather:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:wght@400;600;700;800&amp;family=Nunito:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;family=Oswald:wght@500;700&amp;family=Pacifico&amp;family=Playfair+Display:ital,wght@0,600;0,800;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pg-primary: #0ea5e9;
+      --pg-secondary: #6366f1;
+      --pg-orb1: #7dd3fc;
+      --pg-orb2: #c4b5fd;
+      --pg-orb3: #99f6e4;
+      --pg-bg: #eef6fb;
+      --pg-glass-rgb: 255, 255, 255;
+      --pg-border-rgb: 255, 255, 255;
+      --pg-text-color: #0f172a;
+      --pg-blur: 22px;
+      --pg-opacity: 0.46;
+      --pg-border-alpha: 0.62;
+      --pg-radius: 24px;
+      --pg-font-heading: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+      --pg-font-body: 'Be Vietnam Pro', 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--pg-bg);
+      color: var(--pg-text-color);
+      font-family: var(--pg-font-body);
+      overflow-x: hidden;
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    /* Nền quả cầu chất lỏng chuyển động mượt mà (Liquid Mesh Orbs) */
+    .liquid-mesh-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .liquid-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(88px);
+      opacity: 0.68;
+      will-change: transform;
+      transition: background-color 0.5s ease;
+    }
+
+    .orb-1 {
+      width: 46vw;
+      height: 46vw;
+      max-width: 650px;
+      max-height: 650px;
+      top: -10%;
+      left: -8%;
+      background: var(--pg-orb1);
+      animation: floatOrb1 18s ease-in-out infinite alternate;
+    }
+
+    .orb-2 {
+      width: 44vw;
+      height: 44vw;
+      max-width: 620px;
+      max-height: 620px;
+      top: 28%;
+      right: -10%;
+      background: var(--pg-orb2);
+      animation: floatOrb2 22s ease-in-out infinite alternate;
+    }
+
+    .orb-3 {
+      width: 48vw;
+      height: 48vw;
+      max-width: 680px;
+      max-height: 680px;
+      bottom: -14%;
+      left: 22%;
+      background: var(--pg-orb3);
+      animation: floatOrb3 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatOrb1 {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(6vw, 8vh, 0) scale(1.12); }
+    }
+    @keyframes floatOrb2 {
+      0% { transform: translate3d(0, 0, 0) scale(1.06); }
+      100% { transform: translate3d(-7vw, -6vh, 0) scale(0.95); }
+    }
+    @keyframes floatOrb3 {
+      0% { transform: translate3d(0, 0, 0) scale(0.96); }
+      100% { transform: translate3d(5vw, -7vh, 0) scale(1.1); }
+    }
+
+    /* Vật liệu Liquid Glass (Apple visionOS / iOS 26) */
+    .liquid-card {
+      background: rgba(var(--pg-glass-rgb), var(--pg-opacity));
+      backdrop-filter: blur(var(--pg-blur)) saturate(185%);
+      -webkit-backdrop-filter: blur(var(--pg-blur)) saturate(185%);
+      border: 1px solid rgba(var(--pg-border-rgb), var(--pg-border-alpha));
+      border-radius: var(--pg-radius);
+      box-shadow:
+        0 14px 40px -12px rgba(15, 23, 42, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.45);
+      transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .liquid-pill {
+      background: rgba(var(--pg-glass-rgb), calc(var(--pg-opacity) + 0.14));
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border: 1px solid rgba(var(--pg-border-rgb), calc(var(--pg-border-alpha) * 0.92));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    /* Thanh điều khiển Studio nổi sáng rõ, tách biệt với chủ đề tối/sáng của Portfolio */
+    .studio-chrome {
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 14px 36px -8px rgba(15, 23, 42, 0.16);
+      color: #0f172a;
+    }
+
+    /* Chế độ xem thử ẩn toàn bộ công cụ chỉnh sửa */
+    body.preview-mode .edit-only {
+      display: none !important;
+    }
+
+    /* Viền tương tác trực tiếp khi di chuột */
+    body:not(.preview-mode) .editable-zone {
+      position: relative;
+      cursor: pointer;
+      outline: 1.5px dashed transparent;
+      outline-offset: 4px;
+      border-radius: 14px;
+      transition: outline-color 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    body:not(.preview-mode) .editable-zone:hover {
+      outline-color: var(--pg-primary);
+      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.12);
+    }
+
+    /* Hệ thống kéo thả tự do mọi phần tử (Free Drag-and-Drop) */
+    .draggable-item {
+      position: relative;
+      touch-action: none;
+      will-change: transform;
+    }
+
+    body:not(.preview-mode) .draggable-item:hover > .drag-chip {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drag-chip {
+      position: absolute;
+      top: -12px;
+      left: 10px;
+      z-index: 25;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.16s ease;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .drag-chip:active {
+      cursor: grabbing;
+    }
+
+    .is-dragging {
+      z-index: 38 !important;
+      outline: 2px solid var(--pg-primary) !important;
+      box-shadow: 0 24px 52px -12px rgba(14, 165, 233, 0.34) !important;
+    }
+
+    /* Đường gióng căn chỉnh thông minh (Snap Guidelines) */
+    .snap-guide-v, .snap-guide-h {
+      position: fixed;
+      z-index: 42;
+      pointer-events: none;
+      background: var(--pg-primary);
+      opacity: 0;
+      transition: opacity 0.1s ease;
+    }
+    .snap-guide-v { top: 0; bottom: 0; width: 1.5px; }
+    .snap-guide-h { left: 0; right: 0; height: 1.5px; }
+
+    /* 11 Khung hình Avatar nghệ thuật */
+    .av-frame-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.25s ease;
+    }
+    .av-shape-circle { border-radius: 9999px; }
+    .av-shape-squircle { border-radius: 28%; }
+    .av-shape-square { border-radius: 14px; }
+    .av-shape-hexagon { clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); }
+    .av-shape-octagon { clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); }
+    .av-shape-diamond { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+    .av-shape-heart { clip-path: polygon(50% 92%, 12% 56%, 4% 36%, 12% 16%, 30% 10%, 50% 26%, 70% 10%, 88% 16%, 96% 36%, 88% 56%); }
+    .av-shape-star { clip-path: polygon(50% 0%, 63% 34%, 98% 35%, 70% 57%, 79% 91%, 50% 71%, 21% 91%, 30% 57%, 2% 35%, 37% 34%); }
+    .av-shape-blob { border-radius: 62% 38% 46% 54% / 60% 63% 37% 40%; }
+    .av-shape-arch { border-radius: 9999px 9999px 20px 20px; }
+    .av-neon-ring {
+      background: linear-gradient(135deg, var(--pg-primary), var(--pg-secondary), #ec4899);
+      box-shadow: 0 0 28px rgba(14, 165, 233, 0.45);
+    }
+
+    /* Chỉnh sửa văn bản trực tiếp */
+    body:not(.preview-mode) [contenteditable="true"] {
+      outline: none;
+      border-radius: 8px;
+      padding: 2px 5px;
+      margin: -2px -5px;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+      cursor: text;
+    }
+
+    body:not(.preview-mode) [contenteditable="true"]:hover {
+      background-color: rgba(14, 165, 233, 0.08);
+    }
+
+    body:not(.preview-mode) [contenteditable="true"]:focus {
+      background-color: rgba(14, 165, 233, 0.12);
+      box-shadow: 0 0 0 2px var(--pg-primary);
+    }
+
+    /* Thanh cuộn tinh gọn */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.35); border-radius: 9999px; }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.pointer-events-auto{pointer-events:auto}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-20{bottom:5rem}.bottom-3{bottom:0.75rem}.left-0{left:0px}.left-1\/2{left:50%}.right-0{right:0px}.right-4{right:1rem}.top-16{top:4rem}.top-3{top:0.75rem}.top-4{top:1rem}.-bottom-2{bottom:-0.5rem}.bottom-2{bottom:0.5rem}.right-2{right:0.5rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-3{margin-bottom:0.75rem}.mt-0\.5{margin-top:0.125rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-2\.5{margin-top:0.625rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-4{height:1rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-44{height:11rem}.h-full{height:100%}.max-h-\[56vh\]{max-height:56vh}.max-h-\[72vh\]{max-height:72vh}.w-12{width:3rem}.w-4{width:1rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-\[calc\(100vw-2rem\)\]{width:calc(100vw - 2rem)}.w-full{width:100%}.w-px{width:1px}.w-2{width:0.5rem}.min-w-0{min-width:0px}.max-w-3xl{max-width:48rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-\[150px\]{max-width:150px}.max-w-\[90px\]{max-width:90px}.max-w-fit{max-width:-moz-fit-content;max-width:fit-content}.max-w-full{max-width:100%}.max-w-md{max-width:28rem}.max-w-2xl{max-width:42rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-5{gap:1.25rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.scroll-smooth{scroll-behavior:smooth}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-0{border-width:0px}.border-b{border-bottom-width:1px}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-sky-200{--tw-border-opacity:1;border-color:rgb(186 230 253 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-200\/80{border-color:rgb(226 232 240 / 0.8)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-sky-50{--tw-bg-opacity:1;background-color:rgb(240 249 255 / var(--tw-bg-opacity, 1))}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233 / var(--tw-bg-opacity, 1))}.bg-sky-600{--tw-bg-opacity:1;background-color:rgb(2 132 199 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-100\/90{background-color:rgb(241 245 249 / 0.9)}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/40{background-color:rgb(15 23 42 / 0.4)}.bg-slate-900\/90{background-color:rgb(15 23 42 / 0.9)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-slate-400\/20{background-color:rgb(148 163 184 / 0.2)}.bg-slate-900\/80{background-color:rgb(15 23 42 / 0.8)}.bg-slate-900\/85{background-color:rgb(15 23 42 / 0.85)}.object-cover{object-fit:cover}.p-0\.5{padding:0.125rem}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-1\.5{padding:0.375rem}.p-5{padding:1.25rem}.p-7{padding:1.75rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pb-2\.5{padding-bottom:0.625rem}.pb-32{padding-bottom:8rem}.pl-1\.5{padding-left:0.375rem}.pr-3{padding-right:0.75rem}.pt-20{padding-top:5rem}.pb-4{padding-bottom:1rem}.pt-2{padding-top:0.5rem}.text-center{text-align:center}.font-serif{font-family:ui-serif, Georgia, Cambria, "Times New Roman", Times, serif}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-normal{font-weight:400}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-sky-600{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}.text-sky-800{--tw-text-opacity:1;color:rgb(7 89 133 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-0{opacity:0}.opacity-65{opacity:0.65}.opacity-75{opacity:0.75}.opacity-80{opacity:0.8}.opacity-85{opacity:0.85}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-rose-50:hover{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.hover\:bg-sky-600:hover{--tw-bg-opacity:1;background-color:rgb(2 132 199 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-200\/70:hover{background-color:rgb(226 232 240 / 0.7)}.hover\:bg-slate-200\/80:hover{background-color:rgb(226 232 240 / 0.8)}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-900\/5:hover{background-color:rgb(15 23 42 / 0.05)}.hover\:text-rose-600:hover{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.hover\:text-slate-900:hover{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:opacity-95:hover{opacity:0.95}.focus\:border-sky-500:focus{--tw-border-opacity:1;border-color:rgb(14 165 233 / var(--tw-border-opacity, 1))}.disabled\:opacity-35:disabled{opacity:0.35}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-\[1\.03\]{--tw-scale-x:1.03;--tw-scale-y:1.03;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:inline{display:inline}.sm\:flex{display:flex}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:gap-1\.5{gap:0.375rem}.sm\:p-5{padding:1.25rem}.sm\:p-10{padding:2.5rem}.sm\:p-8{padding:2rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 768px){.md\:inline-flex{display:inline-flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:p-12{padding:3rem}}</style></head>
+<body>
+  <!-- Nền quả cầu Liquid Glass -->
+  <div class="liquid-mesh-bg" aria-hidden="true">
+    <div class="liquid-orb orb-1"></div>
+    <div class="liquid-orb orb-2"></div>
+    <div class="liquid-orb orb-3"></div>
+  </div>
+
+  <!-- THANH ĐIỀU HƯỚNG NỔI PHÍA TRÊN -->
+  <header class="fixed top-3 left-0 right-0 z-40 px-3 pointer-events-none">
+    <div class="studio-chrome max-w-6xl mx-auto rounded-full px-3 sm:px-4 py-2 flex items-center justify-between gap-2 pointer-events-auto">
+      <!-- Thương hiệu & trạng thái lưu -->
+      <div class="flex items-center gap-2.5 min-w-0">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-extrabold text-sm shrink-0 shadow" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">
+          PG
+        </div>
+        <div class="truncate">
+          <div class="text-xs sm:text-sm font-extrabold tracking-tight text-slate-900 truncate">PortfoGlass VN</div>
+          <div id="saveStatusText" class="text-[10px] font-medium text-emerald-600 truncate">✓ Đã lưu tự động (Thành viên)</div>
+        </div>
+      </div>
+
+      <!-- Cụm nút chức năng giữa -->
+      <div class="flex items-center gap-1 sm:gap-1.5">
+        <button type="button" id="undoBtn" title="Hoàn tác (Ctrl+Z)" class="p-2 rounded-full text-slate-700 hover:bg-slate-900/5 disabled:opacity-35 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a5 5 0 015 5v2M3 10l5-5M3 10l5 5"></path></svg>
+        </button>
+
+        <button type="button" id="resetLayoutBtn" title="Đặt lại vị trí tất cả các khối" class="px-2.5 py-1.5 rounded-full text-xs font-semibold text-slate-700 hover:bg-slate-900/5 transition hidden md:inline-flex items-center gap-1">
+          <span>✥ Đặt lại vị trí</span>
+        </button>
+
+        <!-- Chuyển khung xem đa thiết bị -->
+        <div class="hidden sm:flex items-center bg-slate-100/90 rounded-full p-0.5">
+          <button type="button" data-device="desktop" class="device-btn px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white text-slate-900 shadow-sm">Máy tính</button>
+          <button type="button" data-device="tablet" class="device-btn px-2.5 py-1 rounded-full text-[11px] font-semibold text-slate-600 hover:text-slate-900">Tablet</button>
+          <button type="button" data-device="mobile" class="device-btn px-2.5 py-1 rounded-full text-[11px] font-semibold text-slate-600 hover:text-slate-900">Điện thoại</button>
+        </div>
+
+        <button type="button" id="previewToggleBtn" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200/80 text-slate-800 transition">
+          👁️ Xem thử
+        </button>
+
+        <button type="button" id="exportHtmlBtn" class="px-3 py-1.5 rounded-full text-xs font-semibold text-white shadow-sm hover:opacity-95 transition" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">
+          ⬇ Xuất HTML
+        </button>
+      </div>
+
+      <!-- Tài khoản & Đồng bộ đám mây -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button type="button" id="accountBtn" class="flex items-center gap-2 pl-1.5 pr-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200/80 text-xs font-semibold text-slate-800 transition">
+          <span id="userAvatarBadge" class="w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center text-[11px] font-bold">T</span>
+          <span id="userDisplayName" class="max-w-[90px] truncate hidden sm:inline">Thành viên</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- THANH ĐỊNH DẠNG CHỮ CHỐNG CHE KHUẤT 100% (Tự neo lên mép trên hoặc xuống mép dưới xa vùng chữ đang sửa) -->
+  <div id="floatingTextToolbarWrap" class="fixed left-0 right-0 z-50 px-3 pointer-events-none edit-only" style="top: 66px; bottom: auto;">
+    <div id="floatingTextToolbar" class="studio-chrome max-w-fit mx-auto rounded-2xl px-3 py-1.5 pointer-events-auto flex flex-wrap items-center gap-1.5 shadow-xl border border-sky-200">
+      <span class="text-[11px] font-bold text-sky-600 px-1 select-none">✍️ Định dạng chữ:</span>
+      <select id="ftFontSelect" title="Phông chữ khối này" class="text-xs font-medium bg-slate-100 hover:bg-slate-200/70 rounded-xl px-2 py-1 text-slate-800 outline-none max-w-[150px]"><option value="">Phông mặc định</option><option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option><option value="'Plus Jakarta Sans', sans-serif">Plus Jakarta Sans</option><option value="'Inter', sans-serif">Inter</option><option value="'Montserrat', sans-serif">Montserrat</option><option value="'Nunito', sans-serif">Nunito</option><option value="'Open Sans', sans-serif">Open Sans</option><option value="'IBM Plex Sans', sans-serif">IBM Plex Sans</option><option value="'Archivo', sans-serif">Archivo</option><option value="'Arimo', sans-serif">Arimo</option><option value="'Cabin', sans-serif">Cabin</option><option value="'Josefin Sans', sans-serif">Josefin Sans</option><option value="'Kanit', sans-serif">Kanit</option><option value="'Space Grotesk', sans-serif">Space Grotesk</option><option value="'Exo 2', sans-serif">Exo 2</option><option value="'Chakra Petch', sans-serif">Chakra Petch</option><option value="'Comfortaa', sans-serif">Comfortaa</option><option value="'Playfair Display', serif">Playfair Display</option><option value="'Lora', serif">Lora</option><option value="'Merriweather', serif">Merriweather</option><option value="'Cormorant Garamond', serif">Cormorant Garamond</option><option value="'EB Garamond', serif">EB Garamond</option><option value="'Aleo', serif">Aleo</option><option value="'JetBrains Mono', monospace">JetBrains Mono</option><option value="'Fira Code', monospace">Fira Code</option><option value="'IBM Plex Mono', monospace">IBM Plex Mono</option><option value="'Inconsolata', monospace">Inconsolata</option><option value="'Oswald', sans-serif">Oswald</option><option value="'Anton', sans-serif">Anton</option><option value="'Dancing Script', cursive">Dancing Script</option><option value="'Pacifico', cursive">Pacifico</option></select>
+      <select id="ftSizeSelect" title="Cỡ chữ" class="text-xs font-medium bg-slate-100 hover:bg-slate-200/70 rounded-xl px-2 py-1 text-slate-800 outline-none">
+        <option value="">Cỡ mặc định</option>
+        <option value="13px">13px</option>
+        <option value="15px">15px</option>
+        <option value="17px">17px</option>
+        <option value="20px">20px</option>
+        <option value="24px">24px</option>
+        <option value="32px">32px</option>
+        <option value="42px">42px</option>
+        <option value="52px">52px</option>
+      </select>
+      <div class="h-4 w-px bg-slate-200"></div>
+      <button type="button" data-cmd="bold" title="In đậm" class="w-7 h-7 rounded-lg hover:bg-slate-100 font-bold text-xs text-slate-800">B</button>
+      <button type="button" data-cmd="italic" title="In nghiêng" class="w-7 h-7 rounded-lg hover:bg-slate-100 italic font-serif text-xs text-slate-800">I</button>
+      <button type="button" data-cmd="underline" title="Gạch chân" class="w-7 h-7 rounded-lg hover:bg-slate-100 underline text-xs text-slate-800">U</button>
+      <div class="h-4 w-px bg-slate-200"></div>
+      <button type="button" data-align="left" title="Căn trái" class="w-7 h-7 rounded-lg hover:bg-slate-100 text-xs text-slate-700">⫷</button>
+      <button type="button" data-align="center" title="Căn giữa" class="w-7 h-7 rounded-lg hover:bg-slate-100 text-xs text-slate-700">≡</button>
+      <button type="button" data-align="right" title="Căn phải" class="w-7 h-7 rounded-lg hover:bg-slate-100 text-xs text-slate-700">⫸</button>
+      <div class="h-4 w-px bg-slate-200"></div>
+      <label class="flex items-center gap-1 px-1.5 py-1 rounded-lg hover:bg-slate-100 cursor-pointer text-xs font-medium text-slate-700" title="Màu chữ">
+        <span>A</span>
+        <input type="color" id="ftColorInput" value="#0f172a" class="w-4 h-4 rounded border-0 bg-transparent cursor-pointer">
+      </label>
+      <button type="button" id="ftResetStyleBtn" title="Đặt lại định dạng khối này" class="px-2 py-1 rounded-lg text-[11px] font-medium text-slate-500 hover:bg-slate-100">↺</button>
+      <button type="button" id="ftCloseBtn" title="Đóng thanh định dạng" class="w-6 h-6 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 text-[11px] font-bold">✕</button>
+    </div>
+  </div>
+
+  <!-- Đường gióng căn chỉnh khi kéo thả -->
+  <div id="snapGuideV" class="snap-guide-v" style="left: 471.194px; opacity: 0;"></div>
+  <div id="snapGuideH" class="snap-guide-h" style="top: 348.8px; opacity: 0;"></div>
+
+  <!-- KHUNG PORTFOLIO CHÍNH (CHỈNH SỬA & DI CHUYỂN TRỰC TIẾP) -->
+  <main class="relative z-10 pt-20 pb-32 px-3 sm:px-6 transition-all duration-300">
+    <div id="deviceViewport" class="mx-auto transition-all duration-300 max-w-5xl">
+      <div id="portfolioRoot" class="space-y-6">
+          
+        <section data-drag-id="sec-hero" class="draggable-item liquid-card p-7 sm:p-10 md:p-12 flex flex-col text-center items-center relative">
+          
+        <div data-drag-handle="sec-hero" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo khung Hero</span>
+        </div>
+      
+
+          <!-- Ảnh đại diện với 11 kiểu khung hình -->
+          <div data-drag-id="hero-avatar" data-context="avatar" class="draggable-item editable-zone mb-5 group relative">
+            
+        <div data-drag-handle="hero-avatar" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo Avatar</span>
+        </div>
+      
+            <div class="av-frame-wrap av-shape-circle shadow-xl transition group-hover:scale-[1.03]" style="width:128px; height:128px; padding:4px; background:rgba(255,255,255,0.65);">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Nguyễn Minh Anh" onerror="this.onerror=null;this.src='https://placehold.co/240x240/0ea5e9/ffffff?text=Avatar';" class="w-full h-full object-cover av-shape-circle">
+            </div>
+            <span class="edit-only absolute -bottom-2 left-1/2 -translate-x-1/2 bg-slate-900/85 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+              Đổi ảnh &amp; khung
+            </span>
+          </div>
+
+          <div data-drag-id="hero-status" data-context="status" class="draggable-item editable-zone inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-4 liquid-pill">
+             
+        <div data-drag-handle="hero-status" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo</span>
+        </div>
+      
+             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+             <span data-path="hero.statusText" contenteditable="true">Sẵn sàng cho dự án mới</span>
+           </div>
+
+          <div data-drag-id="hero-name" class="draggable-item max-w-3xl" style="transform: translate3d(0px, 0px, 0px);">
+            
+        <div data-drag-handle="hero-name" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo tên</span>
+        </div>
+      
+            <h1 data-path="hero.name" contenteditable="true" style="font-family: Lora, serif;" class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight"><span style="font-weight: normal;">
+              Nguyễn Minh Anh
+            </span></h1>
+          </div>
+
+          <div data-drag-id="hero-role" class="draggable-item max-w-2xl mt-2.5">
+            
+        <div data-drag-handle="hero-role" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo chức danh</span>
+        </div>
+      
+            <p data-path="hero.role" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-base sm:text-xl font-semibold">
+              Nhà Thiết Kế Sản Phẩm Số &amp; Kiến Trúc Sư Giao Diện
+            </p>
+          </div>
+
+          <div data-drag-id="hero-tagline" class="draggable-item max-w-2xl mt-4">
+            
+        <div data-drag-handle="hero-tagline" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo mô tả</span>
+        </div>
+      
+            <p data-path="hero.tagline" contenteditable="true" class="text-sm sm:text-base leading-relaxed opacity-85">
+              Kiến tạo trải nghiệm số tinh tế, kết hợp tư duy hệ thống và thẩm mỹ kính lỏng hiện đại để biến ý tưởng thành sản phẩm chạm tới cảm xúc người dùng.
+            </p>
+          </div>
+
+          
+        <div data-drag-id="hero-socials" data-context="socials" class="draggable-item editable-zone flex flex-wrap justify-center gap-2.5 mt-6 p-1.5">
+          
+        <div data-drag-handle="hero-socials" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo liên hệ</span>
+        </div>
+      
+          
+            <a href="mailto:minhanh.design@gmail.com" target="_blank" rel="noopener" onclick="if(!document.body.classList.contains('preview-mode')){event.preventDefault();}" class="liquid-pill px-4 py-2 rounded-full text-xs font-semibold hover:scale-105 transition flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" style="background: var(--pg-primary);"></span>
+              <span>Email</span>
+              <span class="opacity-65 font-normal hidden sm:inline">• minhanh.design@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" onclick="if(!document.body.classList.contains('preview-mode')){event.preventDefault();}" class="liquid-pill px-4 py-2 rounded-full text-xs font-semibold hover:scale-105 transition flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" style="background: var(--pg-primary);"></span>
+              <span>LinkedIn</span>
+              <span class="opacity-65 font-normal hidden sm:inline">• linkedin.com/in/minhanh</span>
+            </a>
+            <a href="https://behance.net" target="_blank" rel="noopener" onclick="if(!document.body.classList.contains('preview-mode')){event.preventDefault();}" class="liquid-pill px-4 py-2 rounded-full text-xs font-semibold hover:scale-105 transition flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" style="background: var(--pg-primary);"></span>
+              <span>Behance</span>
+              <span class="opacity-65 font-normal hidden sm:inline">• behance.net/minhanh</span>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener" onclick="if(!document.body.classList.contains('preview-mode')){event.preventDefault();}" class="liquid-pill px-4 py-2 rounded-full text-xs font-semibold hover:scale-105 transition flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" style="background: var(--pg-primary);"></span>
+              <span>GitHub</span>
+              <span class="opacity-65 font-normal hidden sm:inline">• github.com/minhanh-ui</span>
+            </a>
+        </div>
+      
+        </section>
+      
+          <div class="space-y-6">
+          <section data-drag-id="sec-about" class="draggable-item liquid-card p-6 sm:p-8">
+            
+        <div data-drag-handle="sec-about" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo khối Giới thiệu</span>
+        </div>
+      
+            <h2 data-path="about.title" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-lg sm:text-xl font-bold mb-3">
+              Giới thiệu bản thân
+            </h2>
+            <p data-path="about.content" contenteditable="true" class="text-sm sm:text-base leading-relaxed opacity-85">
+              Với hơn 5 năm kinh nghiệm thiết kế sản phẩm số tại Việt Nam và khu vực Đông Nam Á, tôi chuyên xây dựng hệ thống thiết kế (Design System), ứng dụng di động và nền tảng SaaS có tính thẩm mỹ cao, tối ưu chuyển đổi và thân thiện trên mọi thiết bị.
+            </p>
+          </section>
+        
+          <section data-drag-id="sec-stats" data-context="stats" class="draggable-item editable-zone grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+            
+        <div data-drag-handle="sec-stats" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo khối Chỉ số</span>
+        </div>
+      
+            
+              <div data-drag-id="stat-card-0" class="draggable-item liquid-card p-5 text-center">
+                
+        <div data-drag-handle="stat-card-0" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo thẻ</span>
+        </div>
+      
+                <div data-path="stats.0.value" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-2xl sm:text-3xl font-extrabold">
+                  5+
+                </div>
+                <div data-path="stats.0.label" contenteditable="true" class="text-xs font-medium mt-1 opacity-75">
+                  Năm kinh nghiệm
+                </div>
+              </div>
+              <div data-drag-id="stat-card-1" class="draggable-item liquid-card p-5 text-center">
+                
+        <div data-drag-handle="stat-card-1" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo thẻ</span>
+        </div>
+      
+                <div data-path="stats.1.value" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-2xl sm:text-3xl font-extrabold">
+                  42+
+                </div>
+                <div data-path="stats.1.label" contenteditable="true" class="text-xs font-medium mt-1 opacity-75">
+                  Dự án hoàn thành
+                </div>
+              </div>
+              <div data-drag-id="stat-card-2" class="draggable-item liquid-card p-5 text-center">
+                
+        <div data-drag-handle="stat-card-2" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo thẻ</span>
+        </div>
+      
+                <div data-path="stats.2.value" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-2xl sm:text-3xl font-extrabold">
+                  18
+                </div>
+                <div data-path="stats.2.label" contenteditable="true" class="text-xs font-medium mt-1 opacity-75">
+                  Khách hàng toàn cầu
+                </div>
+              </div>
+              <div data-drag-id="stat-card-3" class="draggable-item liquid-card p-5 text-center">
+                
+        <div data-drag-handle="stat-card-3" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo thẻ</span>
+        </div>
+      
+                <div data-path="stats.3.value" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-2xl sm:text-3xl font-extrabold">
+                  99%
+                </div>
+                <div data-path="stats.3.label" contenteditable="true" class="text-xs font-medium mt-1 opacity-75">
+                  Mức độ hài lòng
+                </div>
+              </div>
+          </section>
+        
+          <section data-drag-id="sec-skills" data-context="skills" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            
+        <div data-drag-handle="sec-skills" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo khối Kỹ năng</span>
+        </div>
+      
+            <div class="flex items-center justify-between mb-5">
+              <h2 data-path="skillsTitle" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-lg sm:text-xl font-bold">
+                Kỹ năng chuyên môn
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn chỉnh % &amp; kiểu</span>
+            </div>
+            
+            <div class="space-y-4">
+              
+                <div data-drag-id="skill-card-0" class="draggable-item">
+                  
+        <div data-drag-handle="skill-card-0" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo</span>
+        </div>
+      
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span data-path="skills.0.name" contenteditable="true">UI/UX &amp; Product Design</span>
+                    <span style="color: var(--pg-primary);">96%</span>
+                  </div>
+                  <div class="w-full h-2.5 rounded-full bg-slate-400/20 overflow-hidden">
+                    <div class="h-full rounded-full transition-all duration-300" style="width:96%; background: linear-gradient(90deg, var(--pg-primary), var(--pg-secondary));"></div>
+                  </div>
+                </div>
+                <div data-drag-id="skill-card-1" class="draggable-item">
+                  
+        <div data-drag-handle="skill-card-1" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo</span>
+        </div>
+      
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span data-path="skills.1.name" contenteditable="true">Design Systems &amp; Figma</span>
+                    <span style="color: var(--pg-primary);">94%</span>
+                  </div>
+                  <div class="w-full h-2.5 rounded-full bg-slate-400/20 overflow-hidden">
+                    <div class="h-full rounded-full transition-all duration-300" style="width:94%; background: linear-gradient(90deg, var(--pg-primary), var(--pg-secondary));"></div>
+                  </div>
+                </div>
+                <div data-drag-id="skill-card-2" class="draggable-item">
+                  
+        <div data-drag-handle="skill-card-2" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo</span>
+        </div>
+      
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span data-path="skills.2.name" contenteditable="true">Frontend (HTML/CSS/React)</span>
+                    <span style="color: var(--pg-primary);">86%</span>
+                  </div>
+                  <div class="w-full h-2.5 rounded-full bg-slate-400/20 overflow-hidden">
+                    <div class="h-full rounded-full transition-all duration-300" style="width:86%; background: linear-gradient(90deg, var(--pg-primary), var(--pg-secondary));"></div>
+                  </div>
+                </div>
+                <div data-drag-id="skill-card-3" class="draggable-item">
+                  
+        <div data-drag-handle="skill-card-3" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo</span>
+        </div>
+      
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span data-path="skills.3.name" contenteditable="true">Motion &amp; Micro-interactions</span>
+                    <span style="color: var(--pg-primary);">82%</span>
+                  </div>
+                  <div class="w-full h-2.5 rounded-full bg-slate-400/20 overflow-hidden">
+                    <div class="h-full rounded-full transition-all duration-300" style="width:82%; background: linear-gradient(90deg, var(--pg-primary), var(--pg-secondary));"></div>
+                  </div>
+                </div>
+            </div>
+          
+          </section>
+        
+          <section data-drag-id="sec-projects" data-context="projects" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            
+        <div data-drag-handle="sec-projects" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo khối Dự án</span>
+        </div>
+      
+            <div class="flex items-center justify-between mb-5">
+              <h2 data-path="projectsTitle" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-lg sm:text-xl font-bold">
+                Dự án tiêu biểu
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn quản lý dự án</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              
+                <article data-drag-id="proj-card-0" class="draggable-item liquid-pill rounded-2xl overflow-hidden flex flex-col justify-between group">
+                  
+        <div data-drag-handle="proj-card-0" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo dự án</span>
+        </div>
+      
+                  <div>
+                    <div data-context="project-img" data-proj-idx="0" class="editable-zone relative h-44 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="FinFlow — Ứng dụng Quản lý Tài chính Cá nhân" onerror="this.onerror=null;this.src='https://placehold.co/600x360/0ea5e9/ffffff?text=Du+An';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                      <span class="edit-only absolute bottom-2 right-2 bg-slate-900/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">Đổi ảnh</span>
+                    </div>
+                    <div class="p-5">
+                      <span data-path="projects.0.tag" contenteditable="true" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full mb-2" style="background: rgba(14,165,233,0.14); color: var(--pg-primary);">
+                        Fintech • Mobile App
+                      </span>
+                      <h3 data-path="projects.0.title" contenteditable="true" class="text-base sm:text-lg font-bold leading-snug">
+                        FinFlow — Ứng dụng Quản lý Tài chính Cá nhân
+                      </h3>
+                      <p data-path="projects.0.desc" contenteditable="true" class="text-xs sm:text-sm opacity-80 mt-2 leading-relaxed">
+                        Thiết kế lại toàn bộ trải nghiệm người dùng và hệ thống biểu đồ trực quan, giúp tăng 48% tỷ lệ người dùng duy trì hàng tháng.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="px-5 pb-4">
+                    <a href="https://behance.net" target="_blank" rel="noopener" onclick="if(!document.body.classList.contains('preview-mode')){event.preventDefault();}" class="inline-flex items-center gap-1 text-xs font-bold hover:underline" style="color: var(--pg-primary);">
+                      <span>Xem chi tiết dự án</span><span>↗</span>
+                    </a>
+                  </div>
+                </article>
+                <article data-drag-id="proj-card-1" class="draggable-item liquid-pill rounded-2xl overflow-hidden flex flex-col justify-between group">
+                  
+        <div data-drag-handle="proj-card-1" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo dự án</span>
+        </div>
+      
+                  <div>
+                    <div data-context="project-img" data-proj-idx="1" class="editable-zone relative h-44 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="AuraCloud — Nền tảng Quản trị Không gian Làm việc" onerror="this.onerror=null;this.src='https://placehold.co/600x360/0ea5e9/ffffff?text=Du+An';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                      <span class="edit-only absolute bottom-2 right-2 bg-slate-900/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">Đổi ảnh</span>
+                    </div>
+                    <div class="p-5">
+                      <span data-path="projects.1.tag" contenteditable="true" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full mb-2" style="background: rgba(14,165,233,0.14); color: var(--pg-primary);">
+                        SaaS • Design System
+                      </span>
+                      <h3 data-path="projects.1.title" contenteditable="true" class="text-base sm:text-lg font-bold leading-snug">
+                        AuraCloud — Nền tảng Quản trị Không gian Làm việc
+                      </h3>
+                      <p data-path="projects.1.desc" contenteditable="true" class="text-xs sm:text-sm opacity-80 mt-2 leading-relaxed">
+                        Xây dựng Design System đa nền tảng với hơn 120 thành phần giao diện kính mờ, rút ngắn 40% thời gian phát triển sản phẩm.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="px-5 pb-4">
+                    <a href="https://dribbble.com" target="_blank" rel="noopener" onclick="if(!document.body.classList.contains('preview-mode')){event.preventDefault();}" class="inline-flex items-center gap-1 text-xs font-bold hover:underline" style="color: var(--pg-primary);">
+                      <span>Xem chi tiết dự án</span><span>↗</span>
+                    </a>
+                  </div>
+                </article>
+            </div>
+          </section>
+        
+          <section data-drag-id="sec-experience" data-context="experience" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            
+        <div data-drag-handle="sec-experience" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo khối Kinh nghiệm</span>
+        </div>
+      
+            <div class="flex items-center justify-between mb-5">
+              <h2 data-path="experienceTitle" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-lg sm:text-xl font-bold">
+                Kinh nghiệm làm việc
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn thêm/xóa</span>
+            </div>
+            <div class="space-y-4">
+              
+                <div data-drag-id="exp-card-0" class="draggable-item liquid-pill rounded-2xl p-5">
+                  
+        <div data-drag-handle="exp-card-0" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo thẻ</span>
+        </div>
+      
+                  <div class="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 data-path="experience.0.role" contenteditable="true" class="text-base font-bold">Lead Product Designer</h3>
+                    <span data-path="experience.0.period" contenteditable="true" class="text-xs font-semibold px-2.5 py-0.5 rounded-full" style="background: rgba(14,165,233,0.14); color: var(--pg-primary);">
+                      2023 — Hiện tại
+                    </span>
+                  </div>
+                  <div data-path="experience.0.company" contenteditable="true" class="text-xs sm:text-sm font-semibold opacity-75 mt-0.5">TechNova Studio • TP. Hồ Chí Minh</div>
+                  <p data-path="experience.0.desc" contenteditable="true" class="text-xs sm:text-sm opacity-85 mt-2 leading-relaxed">Dẫn dắt đội ngũ 6 nhà thiết kế sản phẩm, định hình ngôn ngữ thiết kế chủ đạo cho các ứng dụng Fintech và AI.</p>
+                </div>
+                <div data-drag-id="exp-card-1" class="draggable-item liquid-pill rounded-2xl p-5">
+                  
+        <div data-drag-handle="exp-card-1" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo thẻ</span>
+        </div>
+      
+                  <div class="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 data-path="experience.1.role" contenteditable="true" class="text-base font-bold">Senior UI/UX Designer</h3>
+                    <span data-path="experience.1.period" contenteditable="true" class="text-xs font-semibold px-2.5 py-0.5 rounded-full" style="background: rgba(14,165,233,0.14); color: var(--pg-primary);">
+                      2020 — 2023
+                    </span>
+                  </div>
+                  <div data-path="experience.1.company" contenteditable="true" class="text-xs sm:text-sm font-semibold opacity-75 mt-0.5">VietDigital Solutions • Hà Nội</div>
+                  <p data-path="experience.1.desc" contenteditable="true" class="text-xs sm:text-sm opacity-85 mt-2 leading-relaxed">Nghiên cứu hành vi người dùng, dựng nguyên mẫu tương tác và bàn giao giao diện cho hơn 25 dự án thương mại điện tử.</p>
+                </div>
+            </div>
+          </section>
+        
+          <section data-drag-id="sec-education" data-context="education" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            
+        <div data-drag-handle="sec-education" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo khối Học vấn</span>
+        </div>
+      
+            <div class="flex items-center justify-between mb-5">
+              <h2 data-path="educationTitle" contenteditable="true" style="font-family:var(--pg-font-heading)" class="text-lg sm:text-xl font-bold">
+                Học vấn &amp; Chứng chỉ
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn chỉnh sửa</span>
+            </div>
+            <div class="space-y-3">
+              
+                <div data-drag-id="edu-card-0" class="draggable-item liquid-pill rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-2">
+                  
+        <div data-drag-handle="edu-card-0" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>Kéo thẻ</span>
+        </div>
+      
+                  <div>
+                    <h3 data-path="education.0.degree" contenteditable="true" class="text-sm sm:text-base font-bold">Cử nhân Thiết kế Đồ họa &amp; Truyền thông Số</h3>
+                    <div data-path="education.0.school" contenteditable="true" class="text-xs sm:text-sm opacity-75 mt-0.5">Đại học Kiến trúc TP. Hồ Chí Minh</div>
+                  </div>
+                  <span data-path="education.0.period" contenteditable="true" class="text-xs font-semibold opacity-75">2016 — 2020</span>
+                </div>
+            </div>
+          </section>
+        </div>
+        
+        <div class="edit-only flex justify-center pt-2">
+          <button type="button" id="addQuickSectionBtn" class="studio-chrome px-4 py-2 rounded-full text-xs font-bold text-slate-700 hover:scale-105 transition flex items-center gap-1.5">
+            <span>➕ Thêm mục nội dung mới</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BẢNG NỔI NGỮ CẢNH (Góc dưới bên phải để không che khuất trung tâm) -->
+  <div id="contextPopoverWrap" class="fixed bottom-20 right-4 z-50 w-[calc(100vw-2rem)] max-w-md pointer-events-none edit-only hidden">
+    <div id="contextPopoverCard" class="studio-chrome w-full rounded-3xl p-4 sm:p-5 pointer-events-auto shadow-2xl border border-white max-h-[72vh] overflow-y-auto">
+      <div class="flex items-center justify-between gap-2 pb-2.5 mb-3 border-b border-slate-200/80">
+        <h3 id="contextPopoverTitle" class="text-sm font-extrabold text-slate-900">Tùy chỉnh</h3>
+        <button type="button" id="closeContextPopoverBtn" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold">✕</button>
+      </div>
+      <div id="contextPopoverBody" class="text-xs text-slate-700"></div>
+    </div>
+  </div>
+
+  <!-- THANH DOCK NỔI PHÍA DƯỚI (30 PHÔNG CHỮ, 20 BẢNG MÀU, VẬT LIỆU KÍNH, 6 MẪU BỐ CỤC, QUẢN LÝ MỤC) -->
+  <div id="bottomDockWrap" class="fixed bottom-3 left-0 right-0 z-40 px-3 pointer-events-none edit-only">
+    <div class="max-w-3xl mx-auto flex flex-col items-center gap-2">
+      <!-- Ngăn mở rộng của Dock -->
+      <div id="dockDrawer" class="studio-chrome w-full rounded-3xl p-4 pointer-events-auto hidden max-h-[56vh] overflow-y-auto shadow-2xl"></div>
+
+      <!-- Thanh nút Dock chính -->
+      <nav class="studio-chrome rounded-full px-2 py-1.5 flex items-center gap-1 pointer-events-auto overflow-x-auto max-w-full">
+        <button type="button" data-dock="templates" class="dock-tab px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 hover:bg-slate-100 whitespace-nowrap transition">🎨 6 Mẫu</button>
+        <button type="button" data-dock="fonts" class="dock-tab px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 hover:bg-slate-100 whitespace-nowrap transition">🔤 30 Phông</button>
+        <button type="button" data-dock="colors" class="dock-tab px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 hover:bg-slate-100 whitespace-nowrap transition">🌈 20 Màu</button>
+        <button type="button" data-dock="glass" class="dock-tab px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 hover:bg-slate-100 whitespace-nowrap transition">🫧 Kính</button>
+        <button type="button" data-dock="sections" class="dock-tab px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 hover:bg-slate-100 whitespace-nowrap transition">🧩 Mục</button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- MODAL ĐĂNG NHẬP / ĐĂNG KÝ / CHUYỂN TÀI KHOẢN -->
+  <div id="accountModal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="studio-chrome w-full max-w-md rounded-3xl p-6 shadow-2xl relative">
+      <button type="button" id="closeAccountModalBtn" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold">✕</button>
+
+      <div id="accountLoggedInBox" class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div id="modalUserAvatar" class="w-12 h-12 rounded-2xl bg-sky-500 text-white flex items-center justify-center text-lg font-extrabold">T</div>
+          <div class="min-w-0">
+            <div id="modalUserName" class="text-base font-extrabold text-slate-900 truncate">Thành viên</div>
+            <div id="modalUserEmail" class="text-xs text-slate-500 truncate">Tài khoản đám mây</div>
+          </div>
+        </div>
+        <div class="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800">
+          ✓ Portfolio của bạn đang được tự động lưu và đồng bộ riêng biệt theo tài khoản này.
+        </div>
+        <div class="flex gap-2">
+          <button type="button" id="forceSaveNowBtn" class="flex-1 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold transition">☁️ Lưu ngay bây giờ</button>
+          <button type="button" id="logoutBtn" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-rose-50 hover:text-rose-600 text-slate-700 text-xs font-bold transition">Đăng xuất</button>
+        </div>
+      </div>
+
+      <div id="accountAuthForms" class="space-y-4 hidden">
+        <div>
+          <h3 class="text-lg font-extrabold text-slate-900">Tài khoản PortfoGlass VN</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Đăng nhập để lưu trữ và chỉnh sửa Portfolio riêng của bạn mọi lúc mọi nơi.</p>
+        </div>
+
+        <div class="flex bg-slate-100 p-1 rounded-xl text-xs font-bold">
+          <button type="button" id="tabLoginBtn" class="flex-1 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm">Đăng nhập</button>
+          <button type="button" id="tabSignupBtn" class="flex-1 py-1.5 rounded-lg text-slate-600">Đăng ký mới</button>
+        </div>
+
+        <form id="authEmailForm" class="space-y-2.5">
+          <div id="signupNameWrap" class="hidden">
+            <input type="text" id="authNameInp" placeholder="Họ và tên hiển thị" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs outline-none focus:border-sky-500">
+          </div>
+          <input type="email" id="authEmailInp" required="" placeholder="Địa chỉ Email của bạn" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs outline-none focus:border-sky-500">
+          <input type="password" id="authPassInp" required="" minlength="4" placeholder="Mật khẩu (tối thiểu 4 ký tự)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs outline-none focus:border-sky-500">
+          <div id="authErrorMsg" class="text-[11px] font-semibold text-rose-600 hidden"></div>
+          <button type="submit" id="authSubmitBtn" class="w-full py-2.5 rounded-xl text-white text-xs font-bold shadow transition" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">
+            Đăng nhập vào Studio
+          </button>
+        </form>
+
+        <div class="relative flex items-center justify-center text-[11px] text-slate-400">
+          <span class="bg-white px-2">hoặc tiếp tục nhanh với</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" id="googleLoginBtn" class="py-2.5 px-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs font-bold text-slate-800 flex items-center justify-center gap-1.5 transition">
+            <span>🔵</span><span>Google</span>
+          </button>
+          <button type="button" id="guestLoginBtn" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+            <span>⚡</span><span>Khách 1-Chạm</span>
+          </button>
+        </div>
+
+        <!-- Hộp nhập nhanh Gmail nếu trình duyệt/iframe chặn cửa sổ popup -->
+        <div id="quickGoogleBox" class="hidden p-3 rounded-2xl bg-sky-50 border border-sky-200 space-y-2">
+          <div class="text-[11px] font-bold text-sky-800">Kết nối nhanh tài khoản Google:</div>
+          <input type="text" id="qgNameInp" placeholder="Tên của bạn (VD: Minh Anh)" class="w-full px-3 py-1.5 rounded-lg border border-sky-200 text-xs bg-white outline-none">
+          <input type="email" id="qgEmailInp" placeholder="Địa chỉ Gmail (VD: ten@gmail.com)" class="w-full px-3 py-1.5 rounded-lg border border-sky-200 text-xs bg-white outline-none">
+          <button type="button" id="qgConfirmBtn" class="w-full py-1.5 rounded-lg bg-sky-600 text-white text-xs font-bold">Xác nhận vào Studio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hộp thông báo nổi (Toast) -->
+  <div id="toastBanner" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-slate-900/90 text-white text-xs font-semibold shadow-xl pointer-events-none opacity-0 transition-opacity duration-200"></div>
+
+  <script type="module">
+    /* =========================================================================
+       1. DỮ LIỆU DANH MỤC: 30 PHÔNG TIẾNG VIỆT, 20 BẢNG MÀU, 11 KHUNG AVATAR
+       ========================================================================= */
+    const GOOGLE_FONTS_30 = [
+      { name: "Be Vietnam Pro", cat: "Sans-serif", css: "'Be Vietnam Pro', sans-serif" },
+      { name: "Plus Jakarta Sans", cat: "Sans-serif", css: "'Plus Jakarta Sans', sans-serif" },
+      { name: "Inter", cat: "Sans-serif", css: "'Inter', sans-serif" },
+      { name: "Montserrat", cat: "Sans-serif", css: "'Montserrat', sans-serif" },
+      { name: "Nunito", cat: "Sans-serif", css: "'Nunito', sans-serif" },
+      { name: "Open Sans", cat: "Sans-serif", css: "'Open Sans', sans-serif" },
+      { name: "IBM Plex Sans", cat: "Sans-serif", css: "'IBM Plex Sans', sans-serif" },
+      { name: "Archivo", cat: "Sans-serif", css: "'Archivo', sans-serif" },
+      { name: "Arimo", cat: "Sans-serif", css: "'Arimo', sans-serif" },
+      { name: "Cabin", cat: "Sans-serif", css: "'Cabin', sans-serif" },
+      { name: "Josefin Sans", cat: "Sans-serif", css: "'Josefin Sans', sans-serif" },
+      { name: "Kanit", cat: "Sans-serif", css: "'Kanit', sans-serif" },
+      { name: "Space Grotesk", cat: "Hiện đại", css: "'Space Grotesk', sans-serif" },
+      { name: "Exo 2", cat: "Hiện đại", css: "'Exo 2', sans-serif" },
+      { name: "Chakra Petch", cat: "Hiện đại", css: "'Chakra Petch', sans-serif" },
+      { name: "Comfortaa", cat: "Nghệ thuật", css: "'Comfortaa', sans-serif" },
+      { name: "Playfair Display", cat: "Serif", css: "'Playfair Display', serif" },
+      { name: "Lora", cat: "Serif", css: "'Lora', serif" },
+      { name: "Merriweather", cat: "Serif", css: "'Merriweather', serif" },
+      { name: "Cormorant Garamond", cat: "Serif", css: "'Cormorant Garamond', serif" },
+      { name: "EB Garamond", cat: "Serif", css: "'EB Garamond', serif" },
+      { name: "Aleo", cat: "Serif", css: "'Aleo', serif" },
+      { name: "JetBrains Mono", cat: "Lập trình", css: "'JetBrains Mono', monospace" },
+      { name: "Fira Code", cat: "Lập trình", css: "'Fira Code', monospace" },
+      { name: "IBM Plex Mono", cat: "Lập trình", css: "'IBM Plex Mono', monospace" },
+      { name: "Inconsolata", cat: "Lập trình", css: "'Inconsolata', monospace" },
+      { name: "Oswald", cat: "Tiêu đề", css: "'Oswald', sans-serif" },
+      { name: "Anton", cat: "Tiêu đề", css: "'Anton', sans-serif" },
+      { name: "Dancing Script", cat: "Nghệ thuật", css: "'Dancing Script', cursive" },
+      { name: "Pacifico", cat: "Nghệ thuật", css: "'Pacifico', cursive" }
+    ];
+
+    const COLOR_PALETTES_20 = [
+      { id: "ios26-glacier", name: "Băng Hà iOS 26", dark: false, primary: "#0ea5e9", secondary: "#6366f1", orb1: "#7dd3fc", orb2: "#c4b5fd", orb3: "#99f6e4", bg: "#eef6fb" },
+      { id: "sakura-mist", name: "Sương Hoa Anh Đào", dark: false, primary: "#ec4899", secondary: "#8b5cf6", orb1: "#fbcfe8", orb2: "#ddd6fe", orb3: "#fed7aa", bg: "#fdf2f8" },
+      { id: "mint-breeze", name: "Bạc Hà Thanh Mát", dark: false, primary: "#10b981", secondary: "#06b6d4", orb1: "#a7f3d0", orb2: "#bae6fd", orb3: "#fef08a", bg: "#ecfdf5" },
+      { id: "sunset-amber", name: "Hoàng Hôn Hổ Phách", dark: false, primary: "#f97316", secondary: "#e11d48", orb1: "#fed7aa", orb2: "#fecdd3", orb3: "#fde68a", bg: "#fff7ed" },
+      { id: "lavender-dream", name: "Oải Hương Mộng Mơ", dark: false, primary: "#8b5cf6", secondary: "#ec4899", orb1: "#ddd6fe", orb2: "#f5d0fe", orb3: "#bae6fd", bg: "#f5f3ff" },
+      { id: "nordic-pearl", name: "Ngọc Trai Bắc Âu", dark: false, primary: "#334155", secondary: "#0284c7", orb1: "#cbd5e1", orb2: "#bae6fd", orb3: "#e2e8f0", bg: "#f8fafc" },
+      { id: "matcha-cream", name: "Trà Xanh Kem Sữa", dark: false, primary: "#65a30d", secondary: "#0d9488", orb1: "#d9f99d", orb2: "#99f6e4", orb3: "#fef3c7", bg: "#f7fee7" },
+      { id: "coral-reef", name: "Rạn San Hô Biển", dark: false, primary: "#f43f5e", secondary: "#0ea5e9", orb1: "#fda4af", orb2: "#7dd3fc", orb3: "#fde047", bg: "#fff1f2" },
+      { id: "royal-indigo", name: "Chàm Hoàng Gia", dark: false, primary: "#4f46e5", secondary: "#06b6d4", orb1: "#c7d2fe", orb2: "#a5f3fc", orb3: "#ddd6fe", bg: "#eef2ff" },
+      { id: "warm-sand", name: "Cát Ấm Sa Mạc", dark: false, primary: "#b45309", secondary: "#d97706", orb1: "#fde68a", orb2: "#fed7aa", orb3: "#fecaca", bg: "#fffbeb" },
+      { id: "vision-obsidian", name: "Kính Đêm visionOS", dark: true, primary: "#38bdf8", secondary: "#818cf8", orb1: "#0284c7", orb2: "#4f46e5", orb3: "#0d9488", bg: "#090d16" },
+      { id: "cyber-neon", name: "Neon Công Nghệ", dark: true, primary: "#22d3ee", secondary: "#e879f9", orb1: "#0891b2", orb2: "#a21caf", orb3: "#3b82f6", bg: "#070b14" },
+      { id: "emerald-abyss", name: "Lục Bảo Huyền Bí", dark: true, primary: "#34d399", secondary: "#38bdf8", orb1: "#059669", orb2: "#0284c7", orb3: "#115e59", bg: "#06110e" },
+      { id: "crimson-velvet", name: "Nhung Đỏ Quyền Lực", dark: true, primary: "#fb7185", secondary: "#f59e0b", orb1: "#be123c", orb2: "#b45309", orb3: "#6d28d9", bg: "#12070b" },
+      { id: "aurora-borealis", name: "Cực Quang Phương Bắc", dark: true, primary: "#4ade80", secondary: "#a855f7", orb1: "#16a34a", orb2: "#7e22ce", orb3: "#0284c7", bg: "#080c17" },
+      { id: "midnight-gold", name: "Vàng Kim Bóng Đêm", dark: true, primary: "#fbbf24", secondary: "#f97316", orb1: "#b45309", orb2: "#9a3412", orb3: "#3730a3", bg: "#0c0a09" },
+      { id: "cosmic-grape", name: "Vũ Trụ Tím Sâu", dark: true, primary: "#c084fc", secondary: "#f472b6", orb1: "#7e22ce", orb2: "#be185d", orb3: "#1d4ed8", bg: "#0d0717" },
+      { id: "graphite-pro", name: "Than Chì Studio", dark: true, primary: "#60a5fa", secondary: "#94a3b8", orb1: "#1e40af", orb2: "#334155", orb3: "#0f766e", bg: "#0b0f17" },
+      { id: "synthwave-84", name: "Hoài Niệm Synthwave", dark: true, primary: "#f472b6", secondary: "#38bdf8", orb1: "#db2777", orb2: "#2563eb", orb3: "#7c3aed", bg: "#10081c" },
+      { id: "deep-ocean", name: "Đại Dương Sâu Thẳm", dark: true, primary: "#2dd4bf", secondary: "#60a5fa", orb1: "#0f766e", orb2: "#1d4ed8", orb3: "#312e81", bg: "#05101a" }
+    ];
+
+    const TEMPLATES_6 = [
+      { id: "minimal", name: "Tối Giản Hiện Đại", desc: "Bố cục dọc cân đối, thanh thoát" },
+      { id: "bento", name: "Lưới Bento Sáng Tạo", desc: "Các thẻ kính xếp lưới hiện đại" },
+      { id: "split", name: "Chuyên Gia Hai Cột", desc: "Hồ sơ cố định bên trái, nội dung phải" },
+      { id: "editorial", name: "Tạp Chí Nghệ Thuật", desc: "Tiêu đề lớn ấn tượng, khoảng thở rộng" },
+      { id: "compact", name: "Hồ Sơ Tinh Gọn", desc: "Tập trung súc tích cho nhà tuyển dụng" },
+      { id: "showcase", name: "Trưng Bày Tác Phẩm", desc: "Ưu tiên dự án nổi bật ngay đầu trang" }
+    ];
+
+    const AVATAR_FRAMES_11 = [
+      { id: "circle", name: "Hình tròn", icon: "⚪" },
+      { id: "squircle", name: "Bo góc mềm", icon: "▢" },
+      { id: "square", name: "Hình vuông", icon: "⬜" },
+      { id: "hexagon", name: "Lục giác", icon: "⬡" },
+      { id: "octagon", name: "Bát giác", icon: "🛑" },
+      { id: "diamond", name: "Kim cương", icon: "💠" },
+      { id: "heart", name: "Trái tim", icon: "💗" },
+      { id: "star", name: "Ngôi sao", icon: "⭐" },
+      { id: "blob", name: "Giọt nước", icon: "💧" },
+      { id: "arch", name: "Cổng vòm", icon: "🏛️" },
+      { id: "neon", name: "Cực Quang", icon: "✨" }
+    ];
+
+    const AVATAR_PRESETS = [
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80"
+    ];
+
+    const PROJECT_PRESETS = [
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=80"
+    ];
+
+    /* =========================================================================
+       2. TRẠNG THÁI DỮ LIỆU MẶC ĐỊNH CỦA PORTFOLIO
+       ========================================================================= */
+    function createDefaultState() {
+      return {
+        template: "minimal",
+        paletteId: "ios26-glacier",
+        darkGlass: false,
+        colors: {
+          primary: "#0ea5e9",
+          secondary: "#6366f1",
+          orb1: "#7dd3fc",
+          orb2: "#c4b5fd",
+          orb3: "#99f6e4",
+          bg: "#eef6fb"
+        },
+        glass: {
+          blur: 22,
+          opacity: 0.46,
+          borderAlpha: 0.62,
+          radius: 24
+        },
+        fonts: {
+          heading: "'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif",
+          body: "'Be Vietnam Pro', 'Inter', sans-serif"
+        },
+        textStyles: {},
+        positions: {},
+        hero: {
+          avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+          avatarShape: "circle",
+          avatarSize: 128,
+          avatarBorder: 4,
+          available: true,
+          statusText: "Sẵn sàng cho dự án mới",
+          name: "Nguyễn Minh Anh",
+          role: "Nhà Thiết Kế Sản Phẩm Số & Kiến Trúc Sư Giao Diện",
+          tagline: "Kiến tạo trải nghiệm số tinh tế, kết hợp tư duy hệ thống và thẩm mỹ kính lỏng hiện đại để biến ý tưởng thành sản phẩm chạm tới cảm xúc người dùng."
+        },
+        socials: [
+          { label: "Email", value: "minhanh.design@gmail.com", url: "mailto:minhanh.design@gmail.com" },
+          { label: "LinkedIn", value: "linkedin.com/in/minhanh", url: "https://linkedin.com" },
+          { label: "Behance", value: "behance.net/minhanh", url: "https://behance.net" },
+          { label: "GitHub", value: "github.com/minhanh-ui", url: "https://github.com" }
+        ],
+        about: {
+          title: "Giới thiệu bản thân",
+          content: "Với hơn 5 năm kinh nghiệm thiết kế sản phẩm số tại Việt Nam và khu vực Đông Nam Á, tôi chuyên xây dựng hệ thống thiết kế (Design System), ứng dụng di động và nền tảng SaaS có tính thẩm mỹ cao, tối ưu chuyển đổi và thân thiện trên mọi thiết bị."
+        },
+        stats: [
+          { value: "5+", label: "Năm kinh nghiệm" },
+          { value: "42+", label: "Dự án hoàn thành" },
+          { value: "18", label: "Khách hàng toàn cầu" },
+          { value: "99%", label: "Mức độ hài lòng" }
+        ],
+        skillsTitle: "Kỹ năng chuyên môn",
+        skillsStyle: "bars",
+        skills: [
+          { name: "UI/UX & Product Design", level: 96 },
+          { name: "Design Systems & Figma", level: 94 },
+          { name: "Frontend (HTML/CSS/React)", level: 86 },
+          { name: "Motion & Micro-interactions", level: 82 }
+        ],
+        projectsTitle: "Dự án tiêu biểu",
+        projects: [
+          {
+            title: "FinFlow — Ứng dụng Quản lý Tài chính Cá nhân",
+            desc: "Thiết kế lại toàn bộ trải nghiệm người dùng và hệ thống biểu đồ trực quan, giúp tăng 48% tỷ lệ người dùng duy trì hàng tháng.",
+            tag: "Fintech • Mobile App",
+            link: "https://behance.net",
+            image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80"
+          },
+          {
+            title: "AuraCloud — Nền tảng Quản trị Không gian Làm việc",
+            desc: "Xây dựng Design System đa nền tảng với hơn 120 thành phần giao diện kính mờ, rút ngắn 40% thời gian phát triển sản phẩm.",
+            tag: "SaaS • Design System",
+            link: "https://dribbble.com",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+          }
+        ],
+        experienceTitle: "Kinh nghiệm làm việc",
+        experience: [
+          {
+            role: "Lead Product Designer",
+            company: "TechNova Studio • TP. Hồ Chí Minh",
+            period: "2023 — Hiện tại",
+            desc: "Dẫn dắt đội ngũ 6 nhà thiết kế sản phẩm, định hình ngôn ngữ thiết kế chủ đạo cho các ứng dụng Fintech và AI."
+          },
+          {
+            role: "Senior UI/UX Designer",
+            company: "VietDigital Solutions • Hà Nội",
+            period: "2020 — 2023",
+            desc: "Nghiên cứu hành vi người dùng, dựng nguyên mẫu tương tác và bàn giao giao diện cho hơn 25 dự án thương mại điện tử."
+          }
+        ],
+        educationTitle: "Học vấn & Chứng chỉ",
+        education: [
+          {
+            degree: "Cử nhân Thiết kế Đồ họa & Truyền thông Số",
+            school: "Đại học Kiến trúc TP. Hồ Chí Minh",
+            period: "2016 — 2020"
+          }
+        ],
+        sectionOrder: ["about", "stats", "skills", "projects", "experience", "education"],
+        hiddenSections: [],
+        customSections: {}
+      };
+    }
+
+    let state = createDefaultState();
+    let undoStack = [];
+    let activeEditableEl = null;
+    let activeTextKey = null;
+    let activeDockTab = null;
+    let saveTimer = null;
+
+    /* =========================================================================
+       3. HÀM TIỆN ÍCH & ÁP DỤNG BIẾN CSS LIQUID GLASS
+       ========================================================================= */
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById("toastBanner");
+      if (!el) return;
+      el.textContent = msg;
+      el.style.opacity = "1";
+      clearTimeout(el._t);
+      el._t = setTimeout(() => {
+        el.style.opacity = "0";
+      }, 2400);
+    }
+
+    function pushUndoSnapshot() {
+      try {
+        undoStack.push(JSON.stringify(state));
+        if (undoStack.length > 30) undoStack.shift();
+        const btn = document.getElementById("undoBtn");
+        if (btn) btn.disabled = undoStack.length === 0;
+      } catch (_) {}
+    }
+
+    function undoLastChange() {
+      if (!undoStack.length) return;
+      try {
+        const prev = undoStack.pop();
+        state = JSON.parse(prev);
+        applyThemeVariables();
+        renderPortfolio();
+        scheduleCloudSave();
+        document.getElementById("undoBtn").disabled = undoStack.length === 0;
+        showToast("↶ Đã hoàn tác thay đổi gần nhất");
+      } catch (_) {}
+    }
+
+    function applyThemeVariables() {
+      const root = document.documentElement.style;
+      root.setProperty("--pg-primary", state.colors.primary);
+      root.setProperty("--pg-secondary", state.colors.secondary);
+      root.setProperty("--pg-orb1", state.colors.orb1);
+      root.setProperty("--pg-orb2", state.colors.orb2);
+      root.setProperty("--pg-orb3", state.colors.orb3);
+      root.setProperty("--pg-bg", state.colors.bg);
+      root.setProperty("--pg-blur", `${state.glass.blur}px`);
+      root.setProperty("--pg-opacity", String(state.glass.opacity));
+      root.setProperty("--pg-border-alpha", String(state.glass.borderAlpha));
+      root.setProperty("--pg-radius", `${state.glass.radius}px`);
+      root.setProperty("--pg-font-heading", state.fonts.heading);
+      root.setProperty("--pg-font-body", state.fonts.body);
+
+      if (state.darkGlass) {
+        root.setProperty("--pg-glass-rgb", "15, 23, 42");
+        root.setProperty("--pg-border-rgb", "148, 163, 184");
+        root.setProperty("--pg-text-color", "#f8fafc");
+      } else {
+        root.setProperty("--pg-glass-rgb", "255, 255, 255");
+        root.setProperty("--pg-border-rgb", "255, 255, 255");
+        root.setProperty("--pg-text-color", "#0f172a");
+      }
+    }
+
+    function setByPath(path, value) {
+      const keys = path.split(".");
+      let cur = state;
+      for (let i = 0; i < keys.length - 1; i++) {
+        if (cur[keys[i]] === undefined) return;
+        cur = cur[keys[i]];
+      }
+      cur[keys[keys.length - 1]] = value;
+    }
+
+    function compressImageFile(file, maxDim = 640) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const img = new Image();
+          img.onload = () => {
+            const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+            const canvas = document.createElement("canvas");
+            canvas.width = Math.round(img.width * scale);
+            canvas.height = Math.round(img.height * scale);
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            resolve(canvas.toDataURL("image/jpeg", 0.86));
+          };
+          img.onerror = () => resolve(ev.target.result);
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    /* =========================================================================
+       4. KẾT XUẤT GIAO DIỆN PORTFOLIO (6 MẪU BỐ CỤC + KÉO THẢ + 11 KHUNG AVATAR)
+       ========================================================================= */
+    function getTextStyleAttr(key, defaultFontVar = "") {
+      const st = (state.textStyles && state.textStyles[key]) || {};
+      const parts = [];
+      if (st.fontFamily) parts.push(`font-family:${st.fontFamily}`);
+      else if (defaultFontVar) parts.push(`font-family:${defaultFontVar}`);
+      if (st.fontSize) parts.push(`font-size:${st.fontSize}`);
+      if (st.textAlign) parts.push(`text-align:${st.textAlign}`);
+      if (st.color) parts.push(`color:${st.color}`);
+      return parts.length ? `style="${parts.join(";")}"` : "";
+    }
+
+    function getDragAttrs(dragId) {
+      const pos = (state.positions && state.positions[dragId]) || { x: 0, y: 0 };
+      const transformCss = pos.x !== 0 || pos.y !== 0 ? `style="transform: translate3d(${pos.x}px, ${pos.y}px, 0);"` : "";
+      return `data-drag-id="${dragId}" ${transformCss}`;
+    }
+
+    function renderDragHandle(dragId, label = "Kéo") {
+      return `
+        <div data-drag-handle="${dragId}" class="edit-only drag-chip studio-chrome px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1" title="Nắm kéo để di chuyển tự do">
+          <span>✥</span><span>${label}</span>
+        </div>
+      `;
+    }
+
+    function renderHeroBlock(layoutMode = "centered") {
+      const h = state.hero;
+      const shape = h.avatarShape || "circle";
+      const avSize = h.avatarSize || 128;
+      const avBorder = h.avatarBorder !== undefined ? h.avatarBorder : 4;
+      const isNeon = shape === "neon";
+      const shapeClass = isNeon ? "av-shape-circle av-neon-ring" : `av-shape-${shape}`;
+      const innerShapeClass = isNeon ? "av-shape-circle" : `av-shape-${shape}`;
+      const alignClass = layoutMode === "left" ? "text-left items-start" : "text-center items-center";
+
+      const statusBadgeHtml = h.available
+        ? `<div ${getDragAttrs("hero-status")} data-context="status" class="draggable-item editable-zone inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-4 liquid-pill">
+             ${renderDragHandle("hero-status", "Kéo")}
+             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+             <span data-path="hero.statusText" contenteditable="true" ${getTextStyleAttr("hero.statusText")}>${escapeHtml(h.statusText)}</span>
+           </div>`
+        : `<div data-context="status" class="edit-only editable-zone inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] opacity-65 mb-3 liquid-pill">
+             <span>+ Bật huy hiệu trạng thái làm việc</span>
+           </div>`;
+
+      const socialsHtml = `
+        <div ${getDragAttrs("hero-socials")} data-context="socials" class="draggable-item editable-zone flex flex-wrap ${layoutMode === "left" ? "justify-start" : "justify-center"} gap-2.5 mt-6 p-1.5">
+          ${renderDragHandle("hero-socials", "Kéo liên hệ")}
+          ${state.socials
+            .map(
+              (s) => `
+            <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener" onclick="if(!document.body.classList.contains('preview-mode')){event.preventDefault();}"
+               class="liquid-pill px-4 py-2 rounded-full text-xs font-semibold hover:scale-105 transition flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" style="background: var(--pg-primary);"></span>
+              <span>${escapeHtml(s.label)}</span>
+              <span class="opacity-65 font-normal hidden sm:inline">• ${escapeHtml(s.value)}</span>
+            </a>`
+            )
+            .join("")}
+        </div>
+      `;
+
+      return `
+        <section ${getDragAttrs("sec-hero")} class="draggable-item liquid-card p-7 sm:p-10 md:p-12 flex flex-col ${alignClass} relative">
+          ${renderDragHandle("sec-hero", "Kéo khung Hero")}
+
+          <!-- Ảnh đại diện với 11 kiểu khung hình -->
+          <div ${getDragAttrs("hero-avatar")} data-context="avatar" class="draggable-item editable-zone mb-5 group relative">
+            ${renderDragHandle("hero-avatar", "Kéo Avatar")}
+            <div class="av-frame-wrap ${shapeClass} shadow-xl transition group-hover:scale-[1.03]"
+                 style="width:${avSize}px; height:${avSize}px; padding:${avBorder}px; background:${isNeon ? "" : "rgba(255,255,255,0.65)"};">
+              <img src="${escapeHtml(h.avatar)}"
+                   alt="${escapeHtml(h.name)}"
+                   onerror="this.onerror=null;this.src='https://placehold.co/240x240/0ea5e9/ffffff?text=Avatar';"
+                   class="w-full h-full object-cover ${innerShapeClass}" />
+            </div>
+            <span class="edit-only absolute -bottom-2 left-1/2 -translate-x-1/2 bg-slate-900/85 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+              Đổi ảnh & khung
+            </span>
+          </div>
+
+          ${statusBadgeHtml}
+
+          <div ${getDragAttrs("hero-name")} class="draggable-item max-w-3xl">
+            ${renderDragHandle("hero-name", "Kéo tên")}
+            <h1 data-path="hero.name" contenteditable="true" ${getTextStyleAttr("hero.name", "var(--pg-font-heading)")}
+                class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+              ${escapeHtml(h.name)}
+            </h1>
+          </div>
+
+          <div ${getDragAttrs("hero-role")} class="draggable-item max-w-2xl mt-2.5">
+            ${renderDragHandle("hero-role", "Kéo chức danh")}
+            <p data-path="hero.role" contenteditable="true" ${getTextStyleAttr("hero.role", "var(--pg-font-heading)")}
+               class="text-base sm:text-xl font-semibold"
+               style="color: var(--pg-primary);">
+              ${escapeHtml(h.role)}
+            </p>
+          </div>
+
+          <div ${getDragAttrs("hero-tagline")} class="draggable-item max-w-2xl mt-4">
+            ${renderDragHandle("hero-tagline", "Kéo mô tả")}
+            <p data-path="hero.tagline" contenteditable="true" ${getTextStyleAttr("hero.tagline")}
+               class="text-sm sm:text-base leading-relaxed opacity-85">
+              ${escapeHtml(h.tagline)}
+            </p>
+          </div>
+
+          ${socialsHtml}
+        </section>
+      `;
+    }
+
+    function renderSectionByKey(key) {
+      if (state.hiddenSections.includes(key)) return "";
+
+      if (key === "about") {
+        return `
+          <section ${getDragAttrs("sec-about")} class="draggable-item liquid-card p-6 sm:p-8">
+            ${renderDragHandle("sec-about", "Kéo khối Giới thiệu")}
+            <h2 data-path="about.title" contenteditable="true" ${getTextStyleAttr("about.title", "var(--pg-font-heading)")}
+                class="text-lg sm:text-xl font-bold mb-3">
+              ${escapeHtml(state.about.title)}
+            </h2>
+            <p data-path="about.content" contenteditable="true" ${getTextStyleAttr("about.content")}
+               class="text-sm sm:text-base leading-relaxed opacity-85">
+              ${escapeHtml(state.about.content)}
+            </p>
+          </section>
+        `;
+      }
+
+      if (key === "stats") {
+        return `
+          <section ${getDragAttrs("sec-stats")} data-context="stats" class="draggable-item editable-zone grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+            ${renderDragHandle("sec-stats", "Kéo khối Chỉ số")}
+            ${state.stats
+              .map(
+                (st, idx) => `
+              <div ${getDragAttrs(`stat-card-${idx}`)} class="draggable-item liquid-card p-5 text-center">
+                ${renderDragHandle(`stat-card-${idx}`, "Kéo thẻ")}
+                <div data-path="stats.${idx}.value" contenteditable="true" ${getTextStyleAttr(`stats.${idx}.value`, "var(--pg-font-heading)")}
+                     class="text-2xl sm:text-3xl font-extrabold" style="color: var(--pg-primary);">
+                  ${escapeHtml(st.value)}
+                </div>
+                <div data-path="stats.${idx}.label" contenteditable="true" ${getTextStyleAttr(`stats.${idx}.label`)}
+                     class="text-xs font-medium mt-1 opacity-75">
+                  ${escapeHtml(st.label)}
+                </div>
+              </div>`
+              )
+              .join("")}
+          </section>
+        `;
+      }
+
+      if (key === "skills") {
+        let itemsHtml = "";
+        if (state.skillsStyle === "pills") {
+          itemsHtml = `
+            <div class="flex flex-wrap gap-2.5">
+              ${state.skills
+                .map(
+                  (sk, idx) => `
+                <div ${getDragAttrs(`skill-card-${idx}`)} class="draggable-item liquid-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-2">
+                  ${renderDragHandle(`skill-card-${idx}`, "Kéo")}
+                  <span data-path="skills.${idx}.name" contenteditable="true">${escapeHtml(sk.name)}</span>
+                  <span class="text-xs font-extrabold px-2 py-0.5 rounded-full text-white" style="background: var(--pg-primary);">${sk.level}%</span>
+                </div>`
+                )
+                .join("")}
+            </div>
+          `;
+        } else if (state.skillsStyle === "grid") {
+          itemsHtml = `
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              ${state.skills
+                .map(
+                  (sk, idx) => `
+                <div ${getDragAttrs(`skill-card-${idx}`)} class="draggable-item liquid-pill p-4 rounded-2xl flex items-center justify-between">
+                  ${renderDragHandle(`skill-card-${idx}`, "Kéo")}
+                  <span data-path="skills.${idx}.name" contenteditable="true" class="text-sm font-semibold">${escapeHtml(sk.name)}</span>
+                  <span class="text-sm font-extrabold" style="color: var(--pg-primary);">${sk.level}%</span>
+                </div>`
+                )
+                .join("")}
+            </div>
+          `;
+        } else {
+          itemsHtml = `
+            <div class="space-y-4">
+              ${state.skills
+                .map(
+                  (sk, idx) => `
+                <div ${getDragAttrs(`skill-card-${idx}`)} class="draggable-item">
+                  ${renderDragHandle(`skill-card-${idx}`, "Kéo")}
+                  <div class="flex justify-between text-xs sm:text-sm font-semibold mb-1.5">
+                    <span data-path="skills.${idx}.name" contenteditable="true">${escapeHtml(sk.name)}</span>
+                    <span style="color: var(--pg-primary);">${sk.level}%</span>
+                  </div>
+                  <div class="w-full h-2.5 rounded-full bg-slate-400/20 overflow-hidden">
+                    <div class="h-full rounded-full transition-all duration-300" style="width:${sk.level}%; background: linear-gradient(90deg, var(--pg-primary), var(--pg-secondary));"></div>
+                  </div>
+                </div>`
+                )
+                .join("")}
+            </div>
+          `;
+        }
+
+        return `
+          <section ${getDragAttrs("sec-skills")} data-context="skills" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            ${renderDragHandle("sec-skills", "Kéo khối Kỹ năng")}
+            <div class="flex items-center justify-between mb-5">
+              <h2 data-path="skillsTitle" contenteditable="true" ${getTextStyleAttr("skillsTitle", "var(--pg-font-heading)")}
+                  class="text-lg sm:text-xl font-bold">
+                ${escapeHtml(state.skillsTitle)}
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn chỉnh % & kiểu</span>
+            </div>
+            ${itemsHtml}
+          </section>
+        `;
+      }
+
+      if (key === "projects") {
+        return `
+          <section ${getDragAttrs("sec-projects")} data-context="projects" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            ${renderDragHandle("sec-projects", "Kéo khối Dự án")}
+            <div class="flex items-center justify-between mb-5">
+              <h2 data-path="projectsTitle" contenteditable="true" ${getTextStyleAttr("projectsTitle", "var(--pg-font-heading)")}
+                  class="text-lg sm:text-xl font-bold">
+                ${escapeHtml(state.projectsTitle)}
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn quản lý dự án</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              ${state.projects
+                .map(
+                  (pr, idx) => `
+                <article ${getDragAttrs(`proj-card-${idx}`)} class="draggable-item liquid-pill rounded-2xl overflow-hidden flex flex-col justify-between group">
+                  ${renderDragHandle(`proj-card-${idx}`, "Kéo dự án")}
+                  <div>
+                    <div data-context="project-img" data-proj-idx="${idx}" class="editable-zone relative h-44 overflow-hidden">
+                      <img src="${escapeHtml(pr.image)}" alt="${escapeHtml(pr.title)}"
+                           onerror="this.onerror=null;this.src='https://placehold.co/600x360/0ea5e9/ffffff?text=Du+An';"
+                           class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                      <span class="edit-only absolute bottom-2 right-2 bg-slate-900/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">Đổi ảnh</span>
+                    </div>
+                    <div class="p-5">
+                      <span data-path="projects.${idx}.tag" contenteditable="true" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full mb-2" style="background: rgba(14,165,233,0.14); color: var(--pg-primary);">
+                        ${escapeHtml(pr.tag)}
+                      </span>
+                      <h3 data-path="projects.${idx}.title" contenteditable="true" class="text-base sm:text-lg font-bold leading-snug">
+                        ${escapeHtml(pr.title)}
+                      </h3>
+                      <p data-path="projects.${idx}.desc" contenteditable="true" class="text-xs sm:text-sm opacity-80 mt-2 leading-relaxed">
+                        ${escapeHtml(pr.desc)}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="px-5 pb-4">
+                    <a href="${escapeHtml(pr.link)}" target="_blank" rel="noopener" onclick="if(!document.body.classList.contains('preview-mode')){event.preventDefault();}"
+                       class="inline-flex items-center gap-1 text-xs font-bold hover:underline" style="color: var(--pg-primary);">
+                      <span>Xem chi tiết dự án</span><span>↗</span>
+                    </a>
+                  </div>
+                </article>`
+                )
+                .join("")}
+            </div>
+          </section>
+        `;
+      }
+
+      if (key === "experience") {
+        return `
+          <section ${getDragAttrs("sec-experience")} data-context="experience" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            ${renderDragHandle("sec-experience", "Kéo khối Kinh nghiệm")}
+            <div class="flex items-center justify-between mb-5">
+              <h2 data-path="experienceTitle" contenteditable="true" ${getTextStyleAttr("experienceTitle", "var(--pg-font-heading)")}
+                  class="text-lg sm:text-xl font-bold">
+                ${escapeHtml(state.experienceTitle)}
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn thêm/xóa</span>
+            </div>
+            <div class="space-y-4">
+              ${state.experience
+                .map(
+                  (ex, idx) => `
+                <div ${getDragAttrs(`exp-card-${idx}`)} class="draggable-item liquid-pill rounded-2xl p-5">
+                  ${renderDragHandle(`exp-card-${idx}`, "Kéo thẻ")}
+                  <div class="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 data-path="experience.${idx}.role" contenteditable="true" class="text-base font-bold">${escapeHtml(ex.role)}</h3>
+                    <span data-path="experience.${idx}.period" contenteditable="true" class="text-xs font-semibold px-2.5 py-0.5 rounded-full" style="background: rgba(14,165,233,0.14); color: var(--pg-primary);">
+                      ${escapeHtml(ex.period)}
+                    </span>
+                  </div>
+                  <div data-path="experience.${idx}.company" contenteditable="true" class="text-xs sm:text-sm font-semibold opacity-75 mt-0.5">${escapeHtml(ex.company)}</div>
+                  <p data-path="experience.${idx}.desc" contenteditable="true" class="text-xs sm:text-sm opacity-85 mt-2 leading-relaxed">${escapeHtml(ex.desc)}</p>
+                </div>`
+                )
+                .join("")}
+            </div>
+          </section>
+        `;
+      }
+
+      if (key === "education") {
+        return `
+          <section ${getDragAttrs("sec-education")} data-context="education" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            ${renderDragHandle("sec-education", "Kéo khối Học vấn")}
+            <div class="flex items-center justify-between mb-5">
+              <h2 data-path="educationTitle" contenteditable="true" ${getTextStyleAttr("educationTitle", "var(--pg-font-heading)")}
+                  class="text-lg sm:text-xl font-bold">
+                ${escapeHtml(state.educationTitle)}
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn chỉnh sửa</span>
+            </div>
+            <div class="space-y-3">
+              ${state.education
+                .map(
+                  (ed, idx) => `
+                <div ${getDragAttrs(`edu-card-${idx}`)} class="draggable-item liquid-pill rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-2">
+                  ${renderDragHandle(`edu-card-${idx}`, "Kéo thẻ")}
+                  <div>
+                    <h3 data-path="education.${idx}.degree" contenteditable="true" class="text-sm sm:text-base font-bold">${escapeHtml(ed.degree)}</h3>
+                    <div data-path="education.${idx}.school" contenteditable="true" class="text-xs sm:text-sm opacity-75 mt-0.5">${escapeHtml(ed.school)}</div>
+                  </div>
+                  <span data-path="education.${idx}.period" contenteditable="true" class="text-xs font-semibold opacity-75">${escapeHtml(ed.period)}</span>
+                </div>`
+                )
+                .join("")}
+            </div>
+          </section>
+        `;
+      }
+
+      if (key.startsWith("custom-")) {
+        const cs = state.customSections[key];
+        if (!cs) return "";
+        return `
+          <section ${getDragAttrs(`sec-${key}`)} data-context="custom" data-custom-id="${key}" class="draggable-item editable-zone liquid-card p-6 sm:p-8">
+            ${renderDragHandle(`sec-${key}`, "Kéo mục này")}
+            <div class="flex items-center justify-between mb-3">
+              <h2 data-path="customSections.${key}.title" contenteditable="true" ${getTextStyleAttr(`customSections.${key}.title`, "var(--pg-font-heading)")}
+                  class="text-lg sm:text-xl font-bold">
+                ${escapeHtml(cs.title)}
+              </h2>
+              <span class="edit-only text-[11px] font-semibold px-2.5 py-1 rounded-full liquid-pill opacity-75">Nhấn xóa mục</span>
+            </div>
+            <p data-path="customSections.${key}.content" contenteditable="true" ${getTextStyleAttr(`customSections.${key}.content`)}
+               class="text-sm sm:text-base leading-relaxed opacity-85">
+              ${escapeHtml(cs.content)}
+            </p>
+          </section>
+        `;
+      }
+
+      return "";
+    }
+
+    function renderPortfolio() {
+      const root = document.getElementById("portfolioRoot");
+      if (!root) return;
+
+      const tpl = state.template || "minimal";
+      const ordered = state.sectionOrder.filter((k) => !state.hiddenSections.includes(k));
+      let html = "";
+
+      if (tpl === "split") {
+        html = `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-5 lg:sticky lg:top-20">${renderHeroBlock("left")}</div>
+            <div class="lg:col-span-7 space-y-6">${ordered.map(renderSectionByKey).join("")}</div>
+          </div>
+        `;
+      } else if (tpl === "bento") {
+        html = `
+          ${renderHeroBlock("centered")}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            ${ordered
+              .map((k) => {
+                const spanFull = k === "stats" || k === "projects" ? "md:col-span-2" : "";
+                return `<div class="${spanFull}">${renderSectionByKey(k)}</div>`;
+              })
+              .join("")}
+          </div>
+        `;
+      } else if (tpl === "editorial") {
+        html = `
+          ${renderHeroBlock("left")}
+          <div class="space-y-8">${ordered.map(renderSectionByKey).join("")}</div>
+        `;
+      } else if (tpl === "showcase") {
+        const projFirst = ["projects", ...ordered.filter((k) => k !== "projects")];
+        html = `
+          ${renderHeroBlock("centered")}
+          <div class="space-y-6">${projFirst.map(renderSectionByKey).join("")}</div>
+        `;
+      } else {
+        html = `
+          ${renderHeroBlock("centered")}
+          <div class="space-y-6">${ordered.map(renderSectionByKey).join("")}</div>
+        `;
+      }
+
+      html += `
+        <div class="edit-only flex justify-center pt-2">
+          <button type="button" id="addQuickSectionBtn" class="studio-chrome px-4 py-2 rounded-full text-xs font-bold text-slate-700 hover:scale-105 transition flex items-center gap-1.5">
+            <span>➕ Thêm mục nội dung mới</span>
+          </button>
+        </div>
+      `;
+
+      root.innerHTML = html;
+      bindInlineEditors();
+      bindFreeDragAndDrop();
+
+      const addSecBtn = document.getElementById("addQuickSectionBtn");
+      if (addSecBtn) {
+        addSecBtn.addEventListener("click", () => {
+          pushUndoSnapshot();
+          const newId = "custom-" + Date.now();
+          state.customSections[newId] = {
+            title: "Giải thưởng & Hoạt động nổi bật",
+            content: "Nhấp trực tiếp vào đây để viết nội dung cho mục mới của bạn (Giải thưởng, Chứng chỉ, Bài viết, Đánh giá từ khách hàng...)."
+          };
+          state.sectionOrder.push(newId);
+          renderPortfolio();
+          scheduleCloudSave();
+          showToast("Đã thêm mục mới vào cuối Portfolio!");
+        });
+      }
+    }
+
+    /* =========================================================================
+       5. KÉO THẢ TỰ DO MỌI PHẦN TỬ (FREE DRAG-AND-DROP + ĐƯỜNG GIÓNG)
+       ========================================================================= */
+    let activeDrag = null;
+
+    function bindFreeDragAndDrop() {
+      const draggables = document.querySelectorAll("#portfolioRoot .draggable-item");
+      draggables.forEach((el) => {
+        el.addEventListener("pointerdown", (e) => {
+          if (document.body.classList.contains("preview-mode")) return;
+          if (e.button !== 0) return;
+
+          const isHandle = e.target.closest("[data-drag-handle]");
+          if (!isHandle && e.target.closest('[contenteditable="true"]')) return;
+          if (!isHandle && e.target.closest("input, select, button, a")) return;
+
+          const dragId = el.getAttribute("data-drag-id");
+          if (!dragId) return;
+
+          e.stopPropagation();
+          const curPos = (state.positions && state.positions[dragId]) || { x: 0, y: 0 };
+          activeDrag = {
+            el,
+            dragId,
+            startX: e.clientX,
+            startY: e.clientY,
+            origX: curPos.x,
+            origY: curPos.y,
+            moved: false
+          };
+        });
+      });
+    }
+
+    window.addEventListener("pointermove", (e) => {
+      if (!activeDrag) return;
+      const dx = e.clientX - activeDrag.startX;
+      const dy = e.clientY - activeDrag.startY;
+      if (!activeDrag.moved && Math.hypot(dx, dy) < 5) return;
+
+      if (!activeDrag.moved) {
+        activeDrag.moved = true;
+        pushUndoSnapshot();
+        activeDrag.el.classList.add("is-dragging");
+      }
+
+      let nextX = Math.round(activeDrag.origX + dx);
+      let nextY = Math.round(activeDrag.origY + dy);
+
+      const guideV = document.getElementById("snapGuideV");
+      const guideH = document.getElementById("snapGuideH");
+
+      if (Math.abs(nextX) < 10) {
+        nextX = 0;
+        const rect = activeDrag.el.getBoundingClientRect();
+        if (guideV) {
+          guideV.style.left = `${rect.left + rect.width / 2}px`;
+          guideV.style.opacity = "0.75";
+        }
+      } else if (guideV) {
+        guideV.style.opacity = "0";
+      }
+
+      if (Math.abs(nextY) < 10) {
+        nextY = 0;
+        const rect = activeDrag.el.getBoundingClientRect();
+        if (guideH) {
+          guideH.style.top = `${rect.top + rect.height / 2}px`;
+          guideH.style.opacity = "0.75";
+        }
+      } else if (guideH) {
+        guideH.style.opacity = "0";
+      }
+
+      activeDrag.el.style.transform = `translate3d(${nextX}px, ${nextY}px, 0)`;
+      state.positions = state.positions || {};
+      state.positions[activeDrag.dragId] = { x: nextX, y: nextY };
+    });
+
+    window.addEventListener("pointerup", () => {
+      if (!activeDrag) return;
+      const guideV = document.getElementById("snapGuideV");
+      const guideH = document.getElementById("snapGuideH");
+      if (guideV) guideV.style.opacity = "0";
+      if (guideH) guideH.style.opacity = "0";
+
+      if (activeDrag.moved) {
+        activeDrag.el.classList.remove("is-dragging");
+        const draggedEl = activeDrag.el;
+        draggedEl.dataset.justDragged = "1";
+        setTimeout(() => {
+          delete draggedEl.dataset.justDragged;
+        }, 140);
+        scheduleCloudSave();
+      }
+      activeDrag = null;
+    });
+
+    /* =========================================================================
+       6. CHỈNH SỬA VĂN BẢN TRỰC TIẾP (THANH CÔNG CỤ CỐ ĐỊNH MÉP TRÊN/DƯỚI)
+       ========================================================================= */
+    function bindInlineEditors() {
+      const editables = document.querySelectorAll('#portfolioRoot [contenteditable="true"]');
+      editables.forEach((el) => {
+        el.addEventListener("focus", () => {
+          activeEditableEl = el;
+          activeTextKey = el.getAttribute("data-path") || "generic";
+          pushUndoSnapshot();
+          openFloatingTextToolbar(el);
+        });
+
+        el.addEventListener("input", () => {
+          const path = el.getAttribute("data-path");
+          if (path) {
+            setByPath(path, el.innerText);
+            scheduleCloudSave();
+          }
+        });
+      });
+    }
+
+    function openFloatingTextToolbar(targetEl) {
+      const wrap = document.getElementById("floatingTextToolbarWrap");
+      const fontSel = document.getElementById("ftFontSelect");
+      const sizeSel = document.getElementById("ftSizeSelect");
+      const colorInp = document.getElementById("ftColorInput");
+      if (!wrap || !fontSel) return;
+
+      if (fontSel.options.length === 0) {
+        fontSel.innerHTML =
+          `<option value="">Phông mặc định</option>` +
+          GOOGLE_FONTS_30.map((f) => `<option value="${escapeHtml(f.css)}">${escapeHtml(f.name)}</option>`).join("");
+      }
+
+      const st = (state.textStyles && state.textStyles[activeTextKey]) || {};
+      fontSel.value = st.fontFamily || "";
+      sizeSel.value = st.fontSize || "";
+      colorInp.value = st.color || "#0f172a";
+
+      // Nếu dòng chữ ở nửa trên màn hình (< 250px), neo thanh định dạng xuống cạnh dưới màn hình; ngược lại neo ngay dưới thanh điều hướng trên cùng -> 0px che khuất chữ!
+      const rect = targetEl.getBoundingClientRect();
+      if (rect.top < 250) {
+        wrap.style.top = "auto";
+        wrap.style.bottom = "16px";
+      } else {
+        wrap.style.bottom = "auto";
+        wrap.style.top = "66px";
+      }
+      wrap.classList.remove("hidden");
+    }
+
+    document.getElementById("ftFontSelect").addEventListener("change", (e) => {
+      if (!activeEditableEl || !activeTextKey) return;
+      state.textStyles[activeTextKey] = state.textStyles[activeTextKey] || {};
+      state.textStyles[activeTextKey].fontFamily = e.target.value;
+      activeEditableEl.style.fontFamily = e.target.value;
+      scheduleCloudSave();
+    });
+
+    document.getElementById("ftSizeSelect").addEventListener("change", (e) => {
+      if (!activeEditableEl || !activeTextKey) return;
+      state.textStyles[activeTextKey] = state.textStyles[activeTextKey] || {};
+      state.textStyles[activeTextKey].fontSize = e.target.value;
+      activeEditableEl.style.fontSize = e.target.value;
+      scheduleCloudSave();
+    });
+
+    document.querySelectorAll("#floatingTextToolbar [data-cmd]").forEach((btn) => {
+      btn.addEventListener("mousedown", (e) => e.preventDefault());
+      btn.addEventListener("click", () => {
+        document.execCommand(btn.getAttribute("data-cmd"), false, null);
+        if (activeEditableEl && activeTextKey) {
+          setByPath(activeTextKey, activeEditableEl.innerText);
+          scheduleCloudSave();
+        }
+      });
+    });
+
+    document.querySelectorAll("#floatingTextToolbar [data-align]").forEach((btn) => {
+      btn.addEventListener("mousedown", (e) => e.preventDefault());
+      btn.addEventListener("click", () => {
+        if (!activeEditableEl || !activeTextKey) return;
+        const align = btn.getAttribute("data-align");
+        state.textStyles[activeTextKey] = state.textStyles[activeTextKey] || {};
+        state.textStyles[activeTextKey].textAlign = align;
+        activeEditableEl.style.textAlign = align;
+        scheduleCloudSave();
+      });
+    });
+
+    document.getElementById("ftColorInput").addEventListener("input", (e) => {
+      if (!activeEditableEl || !activeTextKey) return;
+      state.textStyles[activeTextKey] = state.textStyles[activeTextKey] || {};
+      state.textStyles[activeTextKey].color = e.target.value;
+      activeEditableEl.style.color = e.target.value;
+      scheduleCloudSave();
+    });
+
+    document.getElementById("ftResetStyleBtn").addEventListener("click", () => {
+      if (!activeEditableEl || !activeTextKey) return;
+      delete state.textStyles[activeTextKey];
+      activeEditableEl.removeAttribute("style");
+      scheduleCloudSave();
+      showToast("Đã đặt lại định dạng chữ mặc định");
+    });
+
+    document.getElementById("ftCloseBtn").addEventListener("click", () => {
+      document.getElementById("floatingTextToolbarWrap").classList.add("hidden");
+    });
+
+    /* =========================================================================
+       7. BẢNG NỔI NGỮ CẢNH (11 KHUNG AVATAR, KỸ NĂNG, DỰ ÁN, KINH NGHIỆM...)
+       ========================================================================= */
+    function openContextPopover(title, subtitle, renderFn) {
+      const wrap = document.getElementById("contextPopoverWrap");
+      const titleEl = document.getElementById("contextPopoverTitle");
+      const bodyEl = document.getElementById("contextPopoverBody");
+      titleEl.textContent = title;
+      bodyEl.innerHTML = "";
+      renderFn(bodyEl);
+      wrap.classList.remove("hidden");
+    }
+
+    function closeContextPopover() {
+      document.getElementById("contextPopoverWrap").classList.add("hidden");
+    }
+
+    document.getElementById("closeContextPopoverBtn").addEventListener("click", closeContextPopover);
+
+    document.getElementById("portfolioRoot").addEventListener("click", (e) => {
+      if (document.body.classList.contains("preview-mode")) return;
+
+      const zone = e.target.closest(".editable-zone");
+      if (!zone) return;
+      if (zone.dataset.justDragged === "1") return;
+      if (e.target.closest('[contenteditable="true"]') && zone.getAttribute("data-context") !== "status") {
+        return;
+      }
+
+      const ctx = zone.getAttribute("data-context");
+
+      if (ctx === "avatar") {
+        const renderAvatarEditor = (body) => {
+          const curShape = state.hero.avatarShape || "circle";
+          const curSize = state.hero.avatarSize || 128;
+          const curBorder = state.hero.avatarBorder !== undefined ? state.hero.avatarBorder : 4;
+          body.innerHTML = `
+            <div class="space-y-3">
+              <label class="block cursor-pointer bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-3 rounded-xl text-center transition">
+                📁 Tải ảnh đại diện từ máy tính
+                <input type="file" id="avatarFileInp" accept="image/*" class="hidden" />
+              </label>
+
+              <div>
+                <div class="text-[11px] font-bold text-slate-600 mb-1.5">Chọn kiểu khung hình Avatar (11 kiểu):</div>
+                <div class="grid grid-cols-3 gap-1.5">
+                  ${AVATAR_FRAMES_11.map(
+                    (fr) => `
+                    <button type="button" data-av-shape="${fr.id}" class="px-2 py-1.5 rounded-xl border text-[11px] font-semibold flex items-center gap-1 transition ${
+                      curShape === fr.id ? "border-sky-500 bg-sky-50 text-sky-700 ring-2 ring-sky-400/30" : "border-slate-200 bg-white hover:border-sky-300 text-slate-700"
+                    }">
+                      <span>${fr.icon}</span><span class="truncate">${fr.name}</span>
+                    </button>`
+                  ).join("")}
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2.5 p-2.5 rounded-2xl bg-slate-100/90 text-[11px] font-semibold">
+                <div>
+                  <div class="flex justify-between mb-1"><span>Kích thước</span><span id="avSizeLbl">${curSize}px</span></div>
+                  <input type="range" min="80" max="200" value="${curSize}" id="avSizeRng" class="w-full accent-sky-500" />
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1"><span>Độ dày khung</span><span id="avBdrLbl">${curBorder}px</span></div>
+                  <input type="range" min="0" max="12" value="${curBorder}" id="avBdrRng" class="w-full accent-sky-500" />
+                </div>
+              </div>
+
+              <div class="flex gap-2">
+                <input type="url" id="avatarUrlInp" value="${escapeHtml(state.hero.avatar)}" placeholder="Dán liên kết URL ảnh..." class="flex-1 px-3 py-1.5 rounded-xl border border-slate-200 outline-none" />
+                <button type="button" id="applyAvatarUrlBtn" class="px-3 py-1.5 rounded-xl bg-slate-900 text-white font-semibold">Áp dụng</button>
+              </div>
+
+              <div>
+                <div class="text-[11px] font-semibold text-slate-500 mb-1">Ảnh mẫu nhanh:</div>
+                <div class="grid grid-cols-4 gap-2">
+                  ${AVATAR_PRESETS.map((u) => `<img src="${u}" data-preset-av="${u}" class="w-full h-12 object-cover rounded-xl cursor-pointer hover:ring-2 ring-sky-500" />`).join("")}
+                </div>
+              </div>
+            </div>
+          `;
+
+          body.querySelector("#avatarFileInp").addEventListener("change", async (ev) => {
+            const file = ev.target.files?.[0];
+            if (!file) return;
+            pushUndoSnapshot();
+            state.hero.avatar = await compressImageFile(file, 480);
+            renderPortfolio();
+            scheduleCloudSave();
+            showToast("Đã cập nhật ảnh đại diện!");
+          });
+
+          body.querySelectorAll("[data-av-shape]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.hero.avatarShape = btn.getAttribute("data-av-shape");
+              renderAvatarEditor(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+
+          body.querySelector("#avSizeRng").addEventListener("input", (ev) => {
+            state.hero.avatarSize = parseInt(ev.target.value, 10);
+            body.querySelector("#avSizeLbl").textContent = `${state.hero.avatarSize}px`;
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+
+          body.querySelector("#avBdrRng").addEventListener("input", (ev) => {
+            state.hero.avatarBorder = parseInt(ev.target.value, 10);
+            body.querySelector("#avBdrLbl").textContent = `${state.hero.avatarBorder}px`;
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+
+          body.querySelector("#applyAvatarUrlBtn").addEventListener("click", () => {
+            const val = body.querySelector("#avatarUrlInp").value.trim();
+            if (!val) return;
+            pushUndoSnapshot();
+            state.hero.avatar = val;
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+
+          body.querySelectorAll("[data-preset-av]").forEach((img) => {
+            img.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.hero.avatar = img.getAttribute("data-preset-av");
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+        };
+        openContextPopover("Ảnh Đại Diện & 11 Khung Avatar", "", renderAvatarEditor);
+      } else if (ctx === "status") {
+        openContextPopover("Huy hiệu Trạng thái làm việc", "", (body) => {
+          body.innerHTML = `
+            <div class="space-y-3">
+              <label class="flex items-center justify-between p-3 rounded-xl bg-slate-100 font-semibold cursor-pointer">
+                <span>Hiển thị huy hiệu sẵn sàng làm việc</span>
+                <input type="checkbox" id="toggleAvailChk" ${state.hero.available ? "checked" : ""} class="w-4 h-4 accent-sky-500" />
+              </label>
+              <input type="text" id="statusTextInp" value="${escapeHtml(state.hero.statusText)}" class="w-full px-3 py-2 rounded-xl border border-slate-200 outline-none" />
+            </div>
+          `;
+          body.querySelector("#toggleAvailChk").addEventListener("change", (ev) => {
+            pushUndoSnapshot();
+            state.hero.available = ev.target.checked;
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+          body.querySelector("#statusTextInp").addEventListener("input", (ev) => {
+            state.hero.statusText = ev.target.value;
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        });
+      } else if (ctx === "socials") {
+        const renderSocialEditor = (body) => {
+          body.innerHTML = `
+            <div class="space-y-2.5">
+              ${state.socials
+                .map(
+                  (s, idx) => `
+                <div class="p-2.5 rounded-xl bg-slate-100 space-y-1.5">
+                  <div class="flex gap-1.5">
+                    <input data-s-idx="${idx}" data-s-field="label" value="${escapeHtml(s.label)}" placeholder="Nhãn (Email, Zalo...)" class="w-1/3 px-2 py-1 rounded-lg border border-slate-200 bg-white font-semibold" />
+                    <input data-s-idx="${idx}" data-s-field="value" value="${escapeHtml(s.value)}" placeholder="Hiển thị" class="flex-1 px-2 py-1 rounded-lg border border-slate-200 bg-white" />
+                    <button type="button" data-del-soc="${idx}" class="px-2 rounded-lg text-rose-600 hover:bg-rose-100 font-bold">✕</button>
+                  </div>
+                  <input data-s-idx="${idx}" data-s-field="url" value="${escapeHtml(s.url)}" placeholder="Liên kết URL (https://...)" class="w-full px-2 py-1 rounded-lg border border-slate-200 bg-white text-[11px]" />
+                </div>`
+                )
+                .join("")}
+              <button type="button" id="addSocBtn" class="w-full py-2 rounded-xl bg-sky-500 text-white font-bold">+ Thêm kênh liên hệ</button>
+            </div>
+          `;
+          body.querySelectorAll("[data-s-idx]").forEach((inp) => {
+            inp.addEventListener("input", () => {
+              const i = parseInt(inp.getAttribute("data-s-idx"), 10);
+              const f = inp.getAttribute("data-s-field");
+              state.socials[i][f] = inp.value;
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelectorAll("[data-del-soc]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.socials.splice(parseInt(btn.getAttribute("data-del-soc"), 10), 1);
+              renderSocialEditor(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelector("#addSocBtn").addEventListener("click", () => {
+            pushUndoSnapshot();
+            state.socials.push({ label: "Website", value: "portfolio.vn", url: "https://google.com" });
+            renderSocialEditor(body);
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        };
+        openContextPopover("Quản lý Liên hệ & Mạng xã hội", "", renderSocialEditor);
+      } else if (ctx === "stats") {
+        const renderStatsEditor = (body) => {
+          body.innerHTML = `
+            <div class="space-y-2">
+              ${state.stats
+                .map(
+                  (st, idx) => `
+                <div class="flex gap-1.5 items-center">
+                  <input data-st-idx="${idx}" data-st-f="value" value="${escapeHtml(st.value)}" class="w-20 px-2.5 py-1.5 rounded-xl border border-slate-200 font-bold" />
+                  <input data-st-idx="${idx}" data-st-f="label" value="${escapeHtml(st.label)}" class="flex-1 px-2.5 py-1.5 rounded-xl border border-slate-200" />
+                  <button type="button" data-del-st="${idx}" class="px-2.5 py-1.5 rounded-xl text-rose-600 hover:bg-rose-50 font-bold">✕</button>
+                </div>`
+                )
+                .join("")}
+              <button type="button" id="addStatBtn" class="w-full py-2 rounded-xl bg-sky-500 text-white font-bold">+ Thêm chỉ số</button>
+            </div>
+          `;
+          body.querySelectorAll("[data-st-idx]").forEach((inp) => {
+            inp.addEventListener("input", () => {
+              state.stats[parseInt(inp.getAttribute("data-st-idx"), 10)][inp.getAttribute("data-st-f")] = inp.value;
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelectorAll("[data-del-st]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.stats.splice(parseInt(btn.getAttribute("data-del-st"), 10), 1);
+              renderStatsEditor(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelector("#addStatBtn").addEventListener("click", () => {
+            pushUndoSnapshot();
+            state.stats.push({ value: "10+", label: "Giải thưởng" });
+            renderStatsEditor(body);
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        };
+        openContextPopover("Chỉ số Nổi bật", "", renderStatsEditor);
+      } else if (ctx === "skills") {
+        const renderSkillsEditor = (body) => {
+          body.innerHTML = `
+            <div class="space-y-3">
+              <div class="flex gap-1.5 bg-slate-100 p-1 rounded-xl font-bold text-[11px]">
+                <button type="button" data-sk-style="bars" class="flex-1 py-1.5 rounded-lg ${state.skillsStyle === "bars" ? "bg-white shadow-sm text-sky-600" : "text-slate-600"}">Thanh tiến trình</button>
+                <button type="button" data-sk-style="pills" class="flex-1 py-1.5 rounded-lg ${state.skillsStyle === "pills" ? "bg-white shadow-sm text-sky-600" : "text-slate-600"}">Thẻ huy hiệu</button>
+                <button type="button" data-sk-style="grid" class="flex-1 py-1.5 rounded-lg ${state.skillsStyle === "grid" ? "bg-white shadow-sm text-sky-600" : "text-slate-600"}">Lưới thẻ</button>
+              </div>
+              <div class="space-y-2">
+                ${state.skills
+                  .map(
+                    (sk, idx) => `
+                  <div class="p-2.5 rounded-xl bg-slate-100 space-y-1.5">
+                    <div class="flex gap-1.5">
+                      <input data-sk-name="${idx}" value="${escapeHtml(sk.name)}" class="flex-1 px-2.5 py-1 rounded-lg border border-slate-200 bg-white font-semibold" />
+                      <span class="px-2 py-1 font-bold text-sky-600">${sk.level}%</span>
+                      <button type="button" data-del-sk="${idx}" class="px-2 rounded-lg text-rose-600 hover:bg-rose-100 font-bold">✕</button>
+                    </div>
+                    <input type="range" min="10" max="100" value="${sk.level}" data-sk-rng="${idx}" class="w-full accent-sky-500" />
+                  </div>`
+                  )
+                  .join("")}
+              </div>
+              <button type="button" id="addSkillBtn" class="w-full py-2 rounded-xl bg-sky-500 text-white font-bold">+ Thêm kỹ năng mới</button>
+            </div>
+          `;
+          body.querySelectorAll("[data-sk-style]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.skillsStyle = btn.getAttribute("data-sk-style");
+              renderSkillsEditor(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelectorAll("[data-sk-name]").forEach((inp) => {
+            inp.addEventListener("input", () => {
+              state.skills[parseInt(inp.getAttribute("data-sk-name"), 10)].name = inp.value;
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelectorAll("[data-sk-rng]").forEach((rng) => {
+            rng.addEventListener("input", () => {
+              state.skills[parseInt(rng.getAttribute("data-sk-rng"), 10)].level = parseInt(rng.value, 10);
+              renderSkillsEditor(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelectorAll("[data-del-sk]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.skills.splice(parseInt(btn.getAttribute("data-del-sk"), 10), 1);
+              renderSkillsEditor(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelector("#addSkillBtn").addEventListener("click", () => {
+            pushUndoSnapshot();
+            state.skills.push({ name: "Kỹ năng mới", level: 85 });
+            renderSkillsEditor(body);
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        };
+        openContextPopover("Chỉnh sửa Kỹ năng", "", renderSkillsEditor);
+      } else if (ctx === "project-img") {
+        const idx = parseInt(zone.getAttribute("data-proj-idx"), 10);
+        openContextPopover("Đổi ảnh minh họa Dự án", "", (body) => {
+          body.innerHTML = `
+            <div class="space-y-3">
+              <label class="block cursor-pointer bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-3 rounded-xl text-center transition">
+                📁 Tải ảnh dự án từ máy tính
+                <input type="file" id="projImgFileInp" accept="image/*" class="hidden" />
+              </label>
+              <div class="flex gap-2">
+                <input type="url" id="projImgUrlInp" value="${escapeHtml(state.projects[idx]?.image || "")}" placeholder="Dán liên kết URL ảnh..." class="flex-1 px-3 py-1.5 rounded-xl border border-slate-200 outline-none" />
+                <button type="button" id="applyProjImgBtn" class="px-3 py-1.5 rounded-xl bg-slate-900 text-white font-semibold">Áp dụng</button>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                ${PROJECT_PRESETS.map((u) => `<img src="${u}" data-p-img="${u}" class="w-full h-16 object-cover rounded-xl cursor-pointer hover:ring-2 ring-sky-500" />`).join("")}
+              </div>
+            </div>
+          `;
+          body.querySelector("#projImgFileInp").addEventListener("change", async (ev) => {
+            const file = ev.target.files?.[0];
+            if (!file) return;
+            pushUndoSnapshot();
+            state.projects[idx].image = await compressImageFile(file, 800);
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+          body.querySelector("#applyProjImgBtn").addEventListener("click", () => {
+            const val = body.querySelector("#projImgUrlInp").value.trim();
+            if (!val) return;
+            pushUndoSnapshot();
+            state.projects[idx].image = val;
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+          body.querySelectorAll("[data-p-img]").forEach((img) => {
+            img.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.projects[idx].image = img.getAttribute("data-p-img");
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+        });
+      } else if (ctx === "projects") {
+        const renderProjectsManager = (body) => {
+          body.innerHTML = `
+            <div class="space-y-2.5">
+              ${state.projects
+                .map(
+                  (pr, idx) => `
+                <div class="p-2.5 rounded-xl bg-slate-100 space-y-1.5">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-bold truncate">${escapeHtml(pr.title)}</span>
+                    <button type="button" data-del-pr="${idx}" class="px-2 py-0.5 rounded-lg text-rose-600 hover:bg-rose-100 font-bold">Xóa</button>
+                  </div>
+                  <input data-pr-link="${idx}" value="${escapeHtml(pr.link)}" placeholder="Liên kết xem dự án (https://...)" class="w-full px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-[11px]" />
+                </div>`
+                )
+                .join("")}
+              <button type="button" id="addProjectBtn" class="w-full py-2 rounded-xl bg-sky-500 text-white font-bold">+ Thêm dự án mới</button>
+            </div>
+          `;
+          body.querySelectorAll("[data-pr-link]").forEach((inp) => {
+            inp.addEventListener("input", () => {
+              state.projects[parseInt(inp.getAttribute("data-pr-link"), 10)].link = inp.value;
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelectorAll("[data-del-pr]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.projects.splice(parseInt(btn.getAttribute("data-del-pr"), 10), 1);
+              renderProjectsManager(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelector("#addProjectBtn").addEventListener("click", () => {
+            pushUndoSnapshot();
+            state.projects.push({
+              title: "Dự án Sáng tạo Mới",
+              desc: "Nhấp trực tiếp vào tiêu đề và mô tả này để viết câu chuyện thiết kế của bạn.",
+              tag: "UI/UX • Case Study",
+              link: "https://behance.net",
+              image: PROJECT_PRESETS[state.projects.length % PROJECT_PRESETS.length]
+            });
+            renderProjectsManager(body);
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        };
+        openContextPopover("Quản lý Danh sách Dự án", "", renderProjectsManager);
+      } else if (ctx === "experience") {
+        const renderExpManager = (body) => {
+          body.innerHTML = `
+            <div class="space-y-2">
+              ${state.experience
+                .map(
+                  (ex, idx) => `
+                <div class="p-2.5 rounded-xl bg-slate-100 flex items-center justify-between gap-2">
+                  <div class="truncate">
+                    <div class="font-bold truncate">${escapeHtml(ex.role)}</div>
+                    <div class="text-[11px] text-slate-500 truncate">${escapeHtml(ex.company)}</div>
+                  </div>
+                  <button type="button" data-del-ex="${idx}" class="px-2.5 py-1 rounded-lg text-rose-600 hover:bg-rose-100 font-bold">Xóa</button>
+                </div>`
+                )
+                .join("")}
+              <button type="button" id="addExpBtn" class="w-full py-2 rounded-xl bg-sky-500 text-white font-bold">+ Thêm mốc kinh nghiệm</button>
+            </div>
+          `;
+          body.querySelectorAll("[data-del-ex]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.experience.splice(parseInt(btn.getAttribute("data-del-ex"), 10), 1);
+              renderExpManager(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelector("#addExpBtn").addEventListener("click", () => {
+            pushUndoSnapshot();
+            state.experience.unshift({
+              role: "Chức danh mới",
+              company: "Tên công ty / Tổ chức",
+              period: "2025 — Hiện tại",
+              desc: "Nhấp trực tiếp để mô tả vai trò và thành tựu nổi bật của bạn."
+            });
+            renderExpManager(body);
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        };
+        openContextPopover("Quản lý Kinh nghiệm làm việc", "", renderExpManager);
+      } else if (ctx === "education") {
+        const renderEduManager = (body) => {
+          body.innerHTML = `
+            <div class="space-y-2">
+              ${state.education
+                .map(
+                  (ed, idx) => `
+                <div class="p-2.5 rounded-xl bg-slate-100 flex items-center justify-between gap-2">
+                  <div class="truncate font-bold">${escapeHtml(ed.degree)}</div>
+                  <button type="button" data-del-ed="${idx}" class="px-2.5 py-1 rounded-lg text-rose-600 hover:bg-rose-100 font-bold">Xóa</button>
+                </div>`
+                )
+                .join("")}
+              <button type="button" id="addEduBtn" class="w-full py-2 rounded-xl bg-sky-500 text-white font-bold">+ Thêm học vấn / chứng chỉ</button>
+            </div>
+          `;
+          body.querySelectorAll("[data-del-ed]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.education.splice(parseInt(btn.getAttribute("data-del-ed"), 10), 1);
+              renderEduManager(body);
+              renderPortfolio();
+              scheduleCloudSave();
+            });
+          });
+          body.querySelector("#addEduBtn").addEventListener("click", () => {
+            pushUndoSnapshot();
+            state.education.push({
+              degree: "Chứng chỉ Chuyên môn Quốc tế",
+              school: "Tổ chức cấp chứng chỉ",
+              period: "2024"
+            });
+            renderEduManager(body);
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        };
+        openContextPopover("Quản lý Học vấn & Chứng chỉ", "", renderEduManager);
+      } else if (ctx === "custom") {
+        const cid = zone.getAttribute("data-custom-id");
+        openContextPopover("Tùy chọn Mục nội dung", "", (body) => {
+          body.innerHTML = `
+            <button type="button" id="delCustomSecBtn" class="w-full py-2.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold">
+              🗑️ Xóa mục nội dung này
+            </button>
+          `;
+          body.querySelector("#delCustomSecBtn").addEventListener("click", () => {
+            pushUndoSnapshot();
+            delete state.customSections[cid];
+            state.sectionOrder = state.sectionOrder.filter((k) => k !== cid);
+            closeContextPopover();
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        });
+      }
+    });
+
+    /* =========================================================================
+       8. THANH DOCK DƯỚI: 6 MẪU, 30 PHÔNG TIẾNG VIỆT, 20 BẢNG MÀU, KÍNH, MỤC
+       ========================================================================= */
+    function renderDockDrawer(tab) {
+      const drawer = document.getElementById("dockDrawer");
+      if (!tab) {
+        drawer.classList.add("hidden");
+        return;
+      }
+      drawer.classList.remove("hidden");
+
+      if (tab === "templates") {
+        drawer.innerHTML = `
+          <div class="text-xs font-extrabold text-slate-800 mb-2.5">Chọn mẫu bố cục Portfolio (6 mẫu):</div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            ${TEMPLATES_6.map(
+              (t) => `
+              <button type="button" data-tpl="${t.id}" class="p-3 rounded-2xl border text-left transition ${
+                state.template === t.id ? "border-sky-500 bg-sky-50 ring-2 ring-sky-400/30" : "border-slate-200 bg-white hover:border-sky-300"
+              }">
+                <div class="text-xs font-extrabold text-slate-900">${t.name}</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">${t.desc}</div>
+              </button>`
+            ).join("")}
+          </div>
+        `;
+        drawer.querySelectorAll("[data-tpl]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            pushUndoSnapshot();
+            state.template = btn.getAttribute("data-tpl");
+            renderDockDrawer("templates");
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        });
+      } else if (tab === "fonts") {
+        let searchQuery = "";
+        let catFilter = "Tất cả";
+        const categories = ["Tất cả", "Sans-serif", "Serif", "Hiện đại", "Lập trình", "Tiêu đề", "Nghệ thuật"];
+
+        const drawFontList = () => {
+          const filtered = GOOGLE_FONTS_30.filter((f) => {
+            const matchCat = catFilter === "Tất cả" || f.cat === catFilter;
+            const matchQ = f.name.toLowerCase().includes(searchQuery.toLowerCase());
+            return matchCat && matchQ;
+          });
+
+          drawer.innerHTML = `
+            <div class="space-y-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-extrabold text-slate-800">Kho 30 Phông chữ Tiếng Việt:</span>
+                <input type="text" id="fontSearchInp" value="${escapeHtml(searchQuery)}" placeholder="🔍 Tìm tên phông..." class="px-3 py-1 rounded-full border border-slate-200 text-xs outline-none focus:border-sky-500" />
+              </div>
+              <div class="flex gap-1 overflow-x-auto pb-1">
+                ${categories
+                  .map(
+                    (c) => `
+                  <button type="button" data-fcat="${c}" class="px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap ${
+                      catFilter === c ? "bg-sky-500 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                    }">${c}</button>`
+                  )
+                  .join("")}
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 max-h-48 overflow-y-auto pr-1">
+                ${filtered
+                  .map(
+                    (f) => `
+                  <div class="p-2.5 rounded-2xl border border-slate-200 bg-white flex flex-col justify-between gap-1.5">
+                    <div style="font-family:${f.css}" class="text-sm font-bold text-slate-900 truncate">${f.name} — Tiếng Việt</div>
+                    <div class="flex gap-1">
+                      <button type="button" data-set-hfont="${escapeHtml(f.css)}" class="flex-1 py-1 rounded-lg text-[10px] font-bold ${
+                        state.fonts.heading === f.css ? "bg-sky-500 text-white" : "bg-slate-100 hover:bg-sky-50 text-slate-700"
+                      }">Tiêu đề</button>
+                      <button type="button" data-set-bfont="${escapeHtml(f.css)}" class="flex-1 py-1 rounded-lg text-[10px] font-bold ${
+                        state.fonts.body === f.css ? "bg-indigo-500 text-white" : "bg-slate-100 hover:bg-indigo-50 text-slate-700"
+                      }">Nội dung</button>
+                    </div>
+                  </div>`
+                  )
+                  .join("")}
+              </div>
+            </div>
+          `;
+
+          const sInp = drawer.querySelector("#fontSearchInp");
+          sInp.addEventListener("input", (ev) => {
+            searchQuery = ev.target.value;
+            drawFontList();
+            const again = drawer.querySelector("#fontSearchInp");
+            again.focus();
+            again.setSelectionRange(searchQuery.length, searchQuery.length);
+          });
+
+          drawer.querySelectorAll("[data-fcat]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              catFilter = btn.getAttribute("data-fcat");
+              drawFontList();
+            });
+          });
+
+          drawer.querySelectorAll("[data-set-hfont]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.fonts.heading = btn.getAttribute("data-set-hfont");
+              applyThemeVariables();
+              drawFontList();
+              scheduleCloudSave();
+            });
+          });
+
+          drawer.querySelectorAll("[data-set-bfont]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              pushUndoSnapshot();
+              state.fonts.body = btn.getAttribute("data-set-bfont");
+              applyThemeVariables();
+              drawFontList();
+              scheduleCloudSave();
+            });
+          });
+        };
+        drawFontList();
+      } else if (tab === "colors") {
+        drawer.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-extrabold text-slate-800">20 Bảng màu Liquid Glass & Tùy chỉnh tự do:</span>
+              <button type="button" id="toggleDarkGlassBtn" class="px-3 py-1 rounded-full text-xs font-bold ${
+                state.darkGlass ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-800"
+              }">
+                ${state.darkGlass ? "🌙 Đang dùng Kính Tối" : "☀️ Đang dùng Kính Sáng"}
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 max-h-40 overflow-y-auto pr-1">
+              ${COLOR_PALETTES_20.map(
+                (p) => `
+                <button type="button" data-pal="${p.id}" class="p-2 rounded-xl border text-left flex items-center gap-2 transition ${
+                  state.paletteId === p.id ? "border-sky-500 bg-sky-50 ring-2 ring-sky-400/30" : "border-slate-200 bg-white hover:border-sky-300"
+                }">
+                  <span class="w-5 h-5 rounded-full shrink-0 border border-white shadow" style="background: linear-gradient(135deg, ${p.primary}, ${p.secondary});"></span>
+                  <span class="text-[11px] font-bold text-slate-800 truncate">${p.name}</span>
+                </button>`
+              ).join("")}
+            </div>
+
+            <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 pt-2 border-t border-slate-200/80 text-[11px] font-semibold">
+              <label class="flex items-center gap-1.5 bg-slate-100 px-2 py-1.5 rounded-xl cursor-pointer">
+                <input type="color" data-c-key="primary" value="${state.colors.primary}" class="w-4 h-4 bg-transparent border-0" /><span>Chính</span>
+              </label>
+              <label class="flex items-center gap-1.5 bg-slate-100 px-2 py-1.5 rounded-xl cursor-pointer">
+                <input type="color" data-c-key="secondary" value="${state.colors.secondary}" class="w-4 h-4 bg-transparent border-0" /><span>Phụ</span>
+              </label>
+              <label class="flex items-center gap-1.5 bg-slate-100 px-2 py-1.5 rounded-xl cursor-pointer">
+                <input type="color" data-c-key="bg" value="${state.colors.bg}" class="w-4 h-4 bg-transparent border-0" /><span>Nền</span>
+              </label>
+              <label class="flex items-center gap-1.5 bg-slate-100 px-2 py-1.5 rounded-xl cursor-pointer">
+                <input type="color" data-c-key="orb1" value="${state.colors.orb1}" class="w-4 h-4 bg-transparent border-0" /><span>Cầu 1</span>
+              </label>
+              <label class="flex items-center gap-1.5 bg-slate-100 px-2 py-1.5 rounded-xl cursor-pointer">
+                <input type="color" data-c-key="orb2" value="${state.colors.orb2}" class="w-4 h-4 bg-transparent border-0" /><span>Cầu 2</span>
+              </label>
+              <label class="flex items-center gap-1.5 bg-slate-100 px-2 py-1.5 rounded-xl cursor-pointer">
+                <input type="color" data-c-key="orb3" value="${state.colors.orb3}" class="w-4 h-4 bg-transparent border-0" /><span>Cầu 3</span>
+              </label>
+            </div>
+          </div>
+        `;
+
+        drawer.querySelector("#toggleDarkGlassBtn").addEventListener("click", () => {
+          pushUndoSnapshot();
+          state.darkGlass = !state.darkGlass;
+          applyThemeVariables();
+          renderDockDrawer("colors");
+          scheduleCloudSave();
+        });
+
+        drawer.querySelectorAll("[data-pal]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const p = COLOR_PALETTES_20.find((item) => item.id === btn.getAttribute("data-pal"));
+            if (!p) return;
+            pushUndoSnapshot();
+            state.paletteId = p.id;
+            state.darkGlass = p.dark;
+            state.colors = {
+              primary: p.primary,
+              secondary: p.secondary,
+              orb1: p.orb1,
+              orb2: p.orb2,
+              orb3: p.orb3,
+              bg: p.bg
+            };
+            applyThemeVariables();
+            renderDockDrawer("colors");
+            scheduleCloudSave();
+          });
+        });
+
+        drawer.querySelectorAll("[data-c-key]").forEach((inp) => {
+          inp.addEventListener("input", () => {
+            state.colors[inp.getAttribute("data-c-key")] = inp.value;
+            applyThemeVariables();
+            scheduleCloudSave();
+          });
+        });
+      } else if (tab === "glass") {
+        drawer.innerHTML = `
+          <div class="space-y-3 text-xs font-semibold">
+            <div class="font-extrabold text-slate-800">Tinh chỉnh Vật liệu Liquid Glass:</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="p-2.5 rounded-2xl bg-slate-100">
+                <div class="flex justify-between mb-1"><span>Độ mờ kính (Blur)</span><span>${state.glass.blur}px</span></div>
+                <input type="range" min="4" max="44" value="${state.glass.blur}" data-g-key="blur" class="w-full accent-sky-500" />
+              </div>
+              <div class="p-2.5 rounded-2xl bg-slate-100">
+                <div class="flex justify-between mb-1"><span>Độ đục lớp kính</span><span>${Math.round(state.glass.opacity * 100)}%</span></div>
+                <input type="range" min="15" max="85" value="${Math.round(state.glass.opacity * 100)}" data-g-key="opacity" class="w-full accent-sky-500" />
+              </div>
+              <div class="p-2.5 rounded-2xl bg-slate-100">
+                <div class="flex justify-between mb-1"><span>Viền phản quang</span><span>${Math.round(state.glass.borderAlpha * 100)}%</span></div>
+                <input type="range" min="10" max="100" value="${Math.round(state.glass.borderAlpha * 100)}" data-g-key="borderAlpha" class="w-full accent-sky-500" />
+              </div>
+              <div class="p-2.5 rounded-2xl bg-slate-100">
+                <div class="flex justify-between mb-1"><span>Độ bo góc thẻ</span><span>${state.glass.radius}px</span></div>
+                <input type="range" min="8" max="40" value="${state.glass.radius}" data-g-key="radius" class="w-full accent-sky-500" />
+              </div>
+            </div>
+          </div>
+        `;
+        drawer.querySelectorAll("[data-g-key]").forEach((rng) => {
+          rng.addEventListener("input", () => {
+            const k = rng.getAttribute("data-g-key");
+            const v = parseInt(rng.value, 10);
+            if (k === "opacity" || k === "borderAlpha") state.glass[k] = v / 100;
+            else state.glass[k] = v;
+            applyThemeVariables();
+            renderDockDrawer("glass");
+            scheduleCloudSave();
+          });
+        });
+      } else if (tab === "sections") {
+        const labelsMap = {
+          about: "Giới thiệu bản thân",
+          stats: "Chỉ số nổi bật",
+          skills: "Kỹ năng chuyên môn",
+          projects: "Dự án tiêu biểu",
+          experience: "Kinh nghiệm làm việc",
+          education: "Học vấn & Chứng chỉ"
+        };
+        drawer.innerHTML = `
+          <div class="space-y-2 text-xs">
+            <div class="font-extrabold text-slate-800 mb-1">Ẩn/Hiện & Sắp xếp thứ tự các mục:</div>
+            ${state.sectionOrder
+              .map((k, idx) => {
+                const name = labelsMap[k] || state.customSections[k]?.title || k;
+                const isHidden = state.hiddenSections.includes(k);
+                return `
+                  <div class="flex items-center justify-between p-2 rounded-xl bg-slate-100">
+                    <label class="flex items-center gap-2 font-bold cursor-pointer">
+                      <input type="checkbox" data-sec-vis="${k}" ${!isHidden ? "checked" : ""} class="w-4 h-4 accent-sky-500" />
+                      <span>${escapeHtml(name)}</span>
+                    </label>
+                    <div class="flex gap-1">
+                      <button type="button" data-sec-up="${idx}" ${idx === 0 ? "disabled" : ""} class="px-2 py-1 rounded bg-white disabled:opacity-30 font-bold">↑</button>
+                      <button type="button" data-sec-dn="${idx}" ${idx === state.sectionOrder.length - 1 ? "disabled" : ""} class="px-2 py-1 rounded bg-white disabled:opacity-30 font-bold">↓</button>
+                    </div>
+                  </div>
+                `;
+              })
+              .join("")}
+          </div>
+        `;
+        drawer.querySelectorAll("[data-sec-vis]").forEach((chk) => {
+          chk.addEventListener("change", () => {
+            pushUndoSnapshot();
+            const k = chk.getAttribute("data-sec-vis");
+            if (chk.checked) state.hiddenSections = state.hiddenSections.filter((x) => x !== k);
+            else if (!state.hiddenSections.includes(k)) state.hiddenSections.push(k);
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        });
+        drawer.querySelectorAll("[data-sec-up]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const i = parseInt(btn.getAttribute("data-sec-up"), 10);
+            if (i <= 0) return;
+            pushUndoSnapshot();
+            [state.sectionOrder[i - 1], state.sectionOrder[i]] = [state.sectionOrder[i], state.sectionOrder[i - 1]];
+            renderDockDrawer("sections");
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        });
+        drawer.querySelectorAll("[data-sec-dn]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const i = parseInt(btn.getAttribute("data-sec-dn"), 10);
+            if (i >= state.sectionOrder.length - 1) return;
+            pushUndoSnapshot();
+            [state.sectionOrder[i + 1], state.sectionOrder[i]] = [state.sectionOrder[i], state.sectionOrder[i + 1]];
+            renderDockDrawer("sections");
+            renderPortfolio();
+            scheduleCloudSave();
+          });
+        });
+      }
+    }
+
+    document.querySelectorAll(".dock-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const tab = btn.getAttribute("data-dock");
+        activeDockTab = activeDockTab === tab ? null : tab;
+        document.querySelectorAll(".dock-tab").forEach((b) => {
+          b.classList.toggle("bg-slate-900", b.getAttribute("data-dock") === activeDockTab);
+          b.classList.toggle("text-white", b.getAttribute("data-dock") === activeDockTab);
+        });
+        renderDockDrawer(activeDockTab);
+      });
+    });
+
+    /* =========================================================================
+       9. XUẤT FILE HTML ĐỘC LẬP AN TOÀN (KHÔNG BAO GIỜ XUNG ĐỘT THẺ SCRIPT)
+       ========================================================================= */
+    function exportHtmlFile() {
+      const cloneRoot = document.getElementById("portfolioRoot").cloneNode(true);
+      cloneRoot.querySelectorAll(".edit-only").forEach((el) => el.remove());
+      cloneRoot.querySelectorAll("[contenteditable]").forEach((el) => {
+        el.removeAttribute("contenteditable");
+        el.removeAttribute("data-path");
+      });
+      cloneRoot.querySelectorAll(".editable-zone").forEach((el) => {
+        el.classList.remove("editable-zone");
+        el.removeAttribute("data-context");
+        el.removeAttribute("data-proj-idx");
+        el.removeAttribute("data-custom-id");
+      });
+      cloneRoot.querySelectorAll(".draggable-item").forEach((el) => {
+        el.classList.remove("draggable-item");
+        el.removeAttribute("data-drag-id");
+      });
+
+      const glassRgb = state.darkGlass ? "15, 23, 42" : "255, 255, 255";
+      const borderRgb = state.darkGlass ? "148, 163, 184" : "255, 255, 255";
+      const textColor = state.darkGlass ? "#f8fafc" : "#0f172a";
+
+      const lines = [
+        "<!DOCTYPE html>",
+        '<html lang="vi" class="scroll-smooth">',
+        "<head>",
+        '  <meta charset="UTF-8" />',
+        '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />',
+        `  <title>${escapeHtml(state.hero.name)} — Portfolio</title>`,
+        '  <script src="https://cdn.tailwindcss.com"><' + "/script>",
+        '  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Playfair+Display:wght@600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />',
+        "  <style>",
+        "    :root {",
+        `      --pg-primary: ${state.colors.primary};`,
+        `      --pg-secondary: ${state.colors.secondary};`,
+        `      --pg-orb1: ${state.colors.orb1};`,
+        `      --pg-orb2: ${state.colors.orb2};`,
+        `      --pg-orb3: ${state.colors.orb3};`,
+        `      --pg-bg: ${state.colors.bg};`,
+        `      --pg-glass-rgb: ${glassRgb};`,
+        `      --pg-border-rgb: ${borderRgb};`,
+        `      --pg-text-color: ${textColor};`,
+        `      --pg-blur: ${state.glass.blur}px;`,
+        `      --pg-opacity: ${state.glass.opacity};`,
+        `      --pg-border-alpha: ${state.glass.borderAlpha};`,
+        `      --pg-radius: ${state.glass.radius}px;`,
+        `      --pg-font-heading: ${state.fonts.heading};`,
+        `      --pg-font-body: ${state.fonts.body};`,
+        "    }",
+        "    body { margin: 0; min-height: 100vh; background: var(--pg-bg); color: var(--pg-text-color); font-family: var(--pg-font-body); overflow-x: hidden; }",
+        "    .liquid-mesh-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }",
+        "    .liquid-orb { position: absolute; border-radius: 9999px; filter: blur(88px); opacity: 0.68; }",
+        "    .orb-1 { width: 46vw; height: 46vw; top: -10%; left: -8%; background: var(--pg-orb1); }",
+        "    .orb-2 { width: 44vw; height: 44vw; top: 28%; right: -10%; background: var(--pg-orb2); }",
+        "    .orb-3 { width: 48vw; height: 48vw; bottom: -14%; left: 22%; background: var(--pg-orb3); }",
+        "    .liquid-card { background: rgba(var(--pg-glass-rgb), var(--pg-opacity)); backdrop-filter: blur(var(--pg-blur)) saturate(185%); -webkit-backdrop-filter: blur(var(--pg-blur)) saturate(185%); border: 1px solid rgba(var(--pg-border-rgb), var(--pg-border-alpha)); border-radius: var(--pg-radius); box-shadow: 0 14px 40px -12px rgba(15, 23, 42, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.45); }",
+        "    .liquid-pill { background: rgba(var(--pg-glass-rgb), calc(var(--pg-opacity) + 0.14)); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border: 1px solid rgba(var(--pg-border-rgb), calc(var(--pg-border-alpha) * 0.92)); }",
+        "    .av-frame-wrap { display: inline-flex; align-items: center; justify-content: center; position: relative; }",
+        "    .av-shape-circle { border-radius: 9999px; }",
+        "    .av-shape-squircle { border-radius: 28%; }",
+        "    .av-shape-square { border-radius: 14px; }",
+        "    .av-shape-hexagon { clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); }",
+        "    .av-shape-octagon { clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); }",
+        "    .av-shape-diamond { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }",
+        "    .av-shape-heart { clip-path: polygon(50% 92%, 12% 56%, 4% 36%, 12% 16%, 30% 10%, 50% 26%, 70% 10%, 88% 16%, 96% 36%, 88% 56%); }",
+        "    .av-shape-star { clip-path: polygon(50% 0%, 63% 34%, 98% 35%, 70% 57%, 79% 91%, 50% 71%, 21% 91%, 30% 57%, 2% 35%, 37% 34%); }",
+        "    .av-shape-blob { border-radius: 62% 38% 46% 54% / 60% 63% 37% 40%; }",
+        "    .av-shape-arch { border-radius: 9999px 9999px 20px 20px; }",
+        "    .av-neon-ring { background: linear-gradient(135deg, var(--pg-primary), var(--pg-secondary), #ec4899); box-shadow: 0 0 28px rgba(14, 165, 233, 0.45); }",
+        "  </style>",
+        "</head>",
+        "<body>",
+        '  <div class="liquid-mesh-bg"><div class="liquid-orb orb-1"></div><div class="liquid-orb orb-2"></div><div class="liquid-orb orb-3"></div></div>',
+        '  <main class="relative z-10 py-12 px-4 sm:px-6">',
+        '    <div class="max-w-5xl mx-auto space-y-6">',
+        cloneRoot.innerHTML,
+        "    </div>",
+        "  </main>",
+        "</body>",
+        "</html>"
+      ];
+
+      const blob = new Blob([lines.join("\n")], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${(state.hero.name || "portfolio").toLowerCase().replace(/\s+/g, "-")}-portfolio.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast("⬇ Đã tải xuống file HTML Portfolio độc lập!");
+    }
+
+    /* =========================================================================
+       10. XÁC THỰC ĐA NGƯỜI DÙNG & LƯU TRỮ ĐÁM MÂY (FIREBASE + LOCAL FALLBACK)
+       ========================================================================= */
+    let currentUser = null;
+    let authMode = "login";
+    let fbAuth = null;
+    let fbDb = null;
+    let fbDocMod = null;
+
+    async function initCloudServices() {
+      try {
+        if (typeof __firebase_config !== "undefined" && __firebase_config) {
+          const cfg = JSON.parse(__firebase_config);
+          const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js");
+          const authMod = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js");
+          fbDocMod = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js");
+
+          const app = initializeApp(cfg);
+          fbAuth = authMod.getAuth(app);
+          fbDb = fbDocMod.getFirestore(app);
+
+          if (typeof __initial_auth_token !== "undefined" && __initial_auth_token) {
+            await authMod.signInWithCustomToken(fbAuth, __initial_auth_token);
+          }
+
+          authMod.onAuthStateChanged(fbAuth, async (user) => {
+            if (user && !currentUser) {
+              setActiveUser({
+                uid: user.uid,
+                name: user.displayName || (user.email ? user.email.split("@")[0] : "Thành viên"),
+                email: user.email || "Tài khoản đám mây"
+              });
+              await loadUserPortfolio();
+            }
+          });
+        }
+      } catch (_) {}
+
+      const savedSession = localStorage.getItem("pg_current_user");
+      if (savedSession) {
+        try {
+          setActiveUser(JSON.parse(savedSession));
+          await loadUserPortfolio();
+        } catch (_) {}
+      }
+    }
+
+    function setActiveUser(userObj) {
+      currentUser = userObj;
+      if (userObj) {
+        localStorage.setItem("pg_current_user", JSON.stringify(userObj));
+        document.getElementById("userDisplayName").textContent = userObj.name;
+        document.getElementById("userAvatarBadge").textContent = (userObj.name || "U").charAt(0).toUpperCase();
+        document.getElementById("saveStatusText").textContent = `● Đã kết nối: ${userObj.name}`;
+      } else {
+        localStorage.removeItem("pg_current_user");
+        document.getElementById("userDisplayName").textContent = "Đăng nhập";
+        document.getElementById("userAvatarBadge").textContent = "K";
+        document.getElementById("saveStatusText").textContent = "● Chế độ chỉnh sửa nhanh";
+      }
+      updateAccountModalView();
+    }
+
+    function updateAccountModalView() {
+      const loggedBox = document.getElementById("accountLoggedInBox");
+      const formsBox = document.getElementById("accountAuthForms");
+      if (currentUser) {
+        loggedBox.classList.remove("hidden");
+        formsBox.classList.add("hidden");
+        document.getElementById("modalUserName").textContent = currentUser.name;
+        document.getElementById("modalUserEmail").textContent = currentUser.email;
+        document.getElementById("modalUserAvatar").textContent = (currentUser.name || "U").charAt(0).toUpperCase();
+      } else {
+        loggedBox.classList.add("hidden");
+        formsBox.classList.remove("hidden");
+      }
+    }
+
+    async function saveUserPortfolioNow() {
+      const statusEl = document.getElementById("saveStatusText");
+      if (!currentUser) {
+        localStorage.setItem("pg_draft_guest", JSON.stringify(state));
+        if (statusEl) statusEl.textContent = "● Đã lưu nháp trên trình duyệt";
+        return;
+      }
+
+      if (statusEl) statusEl.textContent = "⏳ Đang lưu lên đám mây...";
+      localStorage.setItem(`pg_portfolio_${currentUser.uid}`, JSON.stringify(state));
+
+      try {
+        if (fbDb && fbDocMod) {
+          const appId = typeof __app_id !== "undefined" ? __app_id : "portfoglass-vn";
+          const ref = fbDocMod.doc(fbDb, "artifacts", appId, "users", currentUser.uid, "portfolios", "main");
+          await fbDocMod.setDoc(ref, { payload: JSON.stringify(state), updatedAt: Date.now() }, { merge: true });
+        }
+      } catch (_) {}
+
+      if (statusEl) statusEl.textContent = `✓ Đã lưu tự động (${currentUser.name})`;
+    }
+
+    function scheduleCloudSave() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveUserPortfolioNow, 1100);
+    }
+
+    async function loadUserPortfolio() {
+      if (!currentUser) return;
+      let loadedData = null;
+
+      try {
+        if (fbDb && fbDocMod) {
+          const appId = typeof __app_id !== "undefined" ? __app_id : "portfoglass-vn";
+          const ref = fbDocMod.doc(fbDb, "artifacts", appId, "users", currentUser.uid, "portfolios", "main");
+          const snap = await fbDocMod.getDoc(ref);
+          if (snap.exists() && snap.data().payload) {
+            loadedData = JSON.parse(snap.data().payload);
+          }
+        }
+      } catch (_) {}
+
+      if (!loadedData) {
+        const localRaw = localStorage.getItem(`pg_portfolio_${currentUser.uid}`);
+        if (localRaw) {
+          try {
+            loadedData = JSON.parse(localRaw);
+          } catch (_) {}
+        }
+      }
+
+      if (loadedData) {
+        state = { ...createDefaultState(), ...loadedData };
+        applyThemeVariables();
+        renderPortfolio();
+        showToast(`☁️ Đã tải Portfolio của ${currentUser.name}`);
+      } else {
+        await saveUserPortfolioNow();
+      }
+    }
+
+    /* =========================================================================
+       11. SỰ KIỆN THANH CÔNG CỤ TRÊN & MODAL TÀI KHOẢN
+       ========================================================================= */
+    document.getElementById("undoBtn").addEventListener("click", undoLastChange);
+
+    document.getElementById("resetLayoutBtn").addEventListener("click", () => {
+      pushUndoSnapshot();
+      state.positions = {};
+      renderPortfolio();
+      scheduleCloudSave();
+      showToast("✥ Đã đặt lại tất cả các khối về vị trí chuẩn!");
+    });
+
+    document.querySelectorAll(".device-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const mode = btn.getAttribute("data-device");
+        const vp = document.getElementById("deviceViewport");
+        document.querySelectorAll(".device-btn").forEach((b) => {
+          b.classList.toggle("bg-white", b === btn);
+          b.classList.toggle("text-slate-900", b === btn);
+          b.classList.toggle("shadow-sm", b === btn);
+          b.classList.toggle("text-slate-600", b !== btn);
+        });
+        if (mode === "mobile") vp.style.maxWidth = "400px";
+        else if (mode === "tablet") vp.style.maxWidth = "768px";
+        else vp.style.maxWidth = "1024px";
+      });
+    });
+
+    document.getElementById("previewToggleBtn").addEventListener("click", (e) => {
+      const isPreview = document.body.classList.toggle("preview-mode");
+      e.currentTarget.textContent = isPreview ? "✏️ Quay lại sửa" : "👁️ Xem thử";
+      if (isPreview) {
+        document.getElementById("floatingTextToolbarWrap").classList.add("hidden");
+        closeContextPopover();
+      }
+    });
+
+    document.getElementById("exportHtmlBtn").addEventListener("click", exportHtmlFile);
+
+    document.getElementById("accountBtn").addEventListener("click", () => {
+      updateAccountModalView();
+      document.getElementById("accountModal").classList.remove("hidden");
+    });
+
+    document.getElementById("closeAccountModalBtn").addEventListener("click", () => {
+      document.getElementById("accountModal").classList.add("hidden");
+    });
+
+    document.getElementById("tabLoginBtn").addEventListener("click", () => {
+      authMode = "login";
+      document.getElementById("tabLoginBtn").className = "flex-1 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm";
+      document.getElementById("tabSignupBtn").className = "flex-1 py-1.5 rounded-lg text-slate-600";
+      document.getElementById("signupNameWrap").classList.add("hidden");
+      document.getElementById("authSubmitBtn").textContent = "Đăng nhập vào Studio";
+      document.getElementById("authErrorMsg").classList.add("hidden");
+    });
+
+    document.getElementById("tabSignupBtn").addEventListener("click", () => {
+      authMode = "signup";
+      document.getElementById("tabSignupBtn").className = "flex-1 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm";
+      document.getElementById("tabLoginBtn").className = "flex-1 py-1.5 rounded-lg text-slate-600";
+      document.getElementById("signupNameWrap").classList.remove("hidden");
+      document.getElementById("authSubmitBtn").textContent = "Tạo tài khoản & Bắt đầu";
+      document.getElementById("authErrorMsg").classList.add("hidden");
+    });
+
+    document.getElementById("authEmailForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("authEmailInp").value.trim().toLowerCase();
+      const pass = document.getElementById("authPassInp").value;
+      const nameInp = document.getElementById("authNameInp").value.trim();
+      const errEl = document.getElementById("authErrorMsg");
+      errEl.classList.add("hidden");
+
+      const usersDb = JSON.parse(localStorage.getItem("pg_users_registry") || "{}");
+
+      if (authMode === "signup") {
+        if (usersDb[email]) {
+          errEl.textContent = "Email này đã được đăng ký. Vui lòng chuyển sang tab Đăng nhập.";
+          errEl.classList.remove("hidden");
+          return;
+        }
+        const newUser = {
+          uid: "usr_" + btoa(email).replace(/[^a-zA-Z0-9]/g, "").slice(0, 16),
+          name: nameInp || email.split("@")[0],
+          email,
+          pass
+        };
+        usersDb[email] = newUser;
+        localStorage.setItem("pg_users_registry", JSON.stringify(usersDb));
+        setActiveUser({ uid: newUser.uid, name: newUser.name, email: newUser.email });
+        await saveUserPortfolioNow();
+        document.getElementById("accountModal").classList.add("hidden");
+        showToast(`🎉 Chào mừng ${newUser.name}! Tài khoản đã sẵn sàng.`);
+      } else {
+        const found = usersDb[email];
+        if (!found || found.pass !== pass) {
+          errEl.textContent = "Email hoặc mật khẩu chưa chính xác (hoặc bạn chưa đăng ký tài khoản này).";
+          errEl.classList.remove("hidden");
+          return;
+        }
+        setActiveUser({ uid: found.uid, name: found.name, email: found.email });
+        await loadUserPortfolio();
+        document.getElementById("accountModal").classList.add("hidden");
+        showToast(`👋 Chào mừng quay trở lại, ${found.name}!`);
+      }
+    });
+
+    document.getElementById("googleLoginBtn").addEventListener("click", async () => {
+      try {
+        if (fbAuth) {
+          const authMod = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js");
+          const provider = new authMod.GoogleAuthProvider();
+          const res = await authMod.signInWithPopup(fbAuth, provider);
+          setActiveUser({
+            uid: res.user.uid,
+            name: res.user.displayName || "Người dùng Google",
+            email: res.user.email || "google@account"
+          });
+          await loadUserPortfolio();
+          document.getElementById("accountModal").classList.add("hidden");
+          return;
+        }
+      } catch (_) {}
+      document.getElementById("quickGoogleBox").classList.remove("hidden");
+    });
+
+    document.getElementById("qgConfirmBtn").addEventListener("click", async () => {
+      const gEmail = document.getElementById("qgEmailInp").value.trim().toLowerCase();
+      const gName = document.getElementById("qgNameInp").value.trim();
+      if (!gEmail) return;
+      const uid = "gg_" + btoa(gEmail).replace(/[^a-zA-Z0-9]/g, "").slice(0, 16);
+      setActiveUser({ uid, name: gName || gEmail.split("@")[0], email: gEmail });
+      await loadUserPortfolio();
+      document.getElementById("accountModal").classList.add("hidden");
+      showToast(`✓ Đã đăng nhập với ${gEmail}`);
+    });
+
+    document.getElementById("guestLoginBtn").addEventListener("click", async () => {
+      const guestUid = localStorage.getItem("pg_guest_uid") || "guest_" + Date.now();
+      localStorage.setItem("pg_guest_uid", guestUid);
+      setActiveUser({ uid: guestUid, name: "Khách Sáng Tạo", email: "Phiên lưu trữ cá nhân" });
+      await loadUserPortfolio();
+      document.getElementById("accountModal").classList.add("hidden");
+      showToast("⚡ Đã vào Studio bằng Tài khoản Khách!");
+    });
+
+    document.getElementById("forceSaveNowBtn").addEventListener("click", async () => {
+      await saveUserPortfolioNow();
+      showToast("☁️ Đã lưu toàn bộ Portfolio thành công!");
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      setActiveUser(null);
+      showToast("Đã đăng xuất khỏi tài khoản");
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && document.activeElement?.getAttribute("contenteditable") !== "true") {
+        e.preventDefault();
+        undoLastChange();
+      }
+      if (e.key === "Escape") {
+        document.getElementById("floatingTextToolbarWrap").classList.add("hidden");
+        closeContextPopover();
+        document.getElementById("accountModal").classList.add("hidden");
+      }
+    });
+
+    /* =========================================================================
+       12. KHỞI CHẠY ỨNG DỤNG
+       ========================================================================= */
+    applyThemeVariables();
+    renderPortfolio();
+    initCloudServices();
+  </script>
+
+</body></html>
